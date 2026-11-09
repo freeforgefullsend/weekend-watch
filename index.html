@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="New movies and shows this week and the month ahead, sorted by what they cost to watch: free, included with your streaming, rent or buy, or in theaters.">
+<meta name="theme-color" content="#eef1f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1220" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Weekend Watch">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Weekend Watch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,500..900&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a weekend TV guide. Marquee header, sticky filter rail, cards grouped by how you get to watch. Free leads. */
+:root{
+  --bg:#eef1f6; --surface:#ffffff; --ink:#141a2b; --muted:#5a6378; --line:#d6dbe6;
+  --free:#0f7a5c; --free-soft:#dcf2ea;
+  --paid:#9a5b00; --paid-soft:#fbecd2;
+  --theater:#b8323a; --theater-soft:#f9dfe0;
+  --accent:#2b3fd6; --accent-soft:#e1e5fb;
+  --display:"Anybody", "Arial Narrow", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3ba; --line:#2a3148;
+  --free:#4fd1a5; --free-soft:#123a30; --paid:#f0b45a; --paid-soft:#3a2a10;
+  --theater:#ff7b82; --theater-soft:#3e1a1e; --accent:#8b98ff; --accent-soft:#232a52; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3ba; --line:#2a3148;
+  --free:#4fd1a5; --free-soft:#123a30; --paid:#f0b45a; --paid-soft:#3a2a10;
+  --theater:#ff7b82; --theater-soft:#3e1a1e; --accent:#8b98ff; --accent-soft:#232a52; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header.top{padding-block:28px 18px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(44px,9vw,84px);line-height:.9;margin:6px 0 10px;letter-spacing:-.01em;text-wrap:balance}
+h1 span{color:var(--free)}
+.lede{max-width:62ch;color:var(--muted);margin:0}
+.dates{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.day{font-family:var(--mono);font-size:13px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:6px 10px}
+.day b{font-family:var(--body)}
+
+.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px}
+.access{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.access button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0}
+.access button .n{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:22px;line-height:1}
+.access button .l{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.access button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.access button[data-a="inc"] .n{color:var(--free)} .access button[data-a="rent"] .n{color:var(--paid)} .access button[data-a="theater"] .n{color:var(--theater)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.controls input,.controls select{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 10px;min-width:0}
+.controls input{flex:1 1 180px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-top:8px;scrollbar-width:thin}
+.chip{flex:none;border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 11px;font-size:13px;cursor:pointer;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+main{padding-block:18px 40px;display:flex;flex-direction:column;gap:30px}
+section h2{font-family:var(--display);font-stretch:70%;font-weight:800;font-size:28px;margin:0 0 2px;display:flex;align-items:center;gap:10px}
+section h2 .dot{width:12px;height:12px;border-radius:3px}
+section .sub{color:var(--muted);margin:0 0 12px;font-size:14px;max-width:70ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.empty{color:var(--muted);font-style:italic;padding:8px 0}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;min-width:0;position:relative}
+.card .body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.poster{aspect-ratio:2/3;width:100%;max-width:100%;border-radius:6px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:8px 7px;color:#fff;background:var(--pbg);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.poster::before{content:"";position:absolute;inset:0;background:var(--pat);opacity:.55;pointer-events:none}
+.poster::after{content:"";position:absolute;inset:auto 0 0;height:60%;background:linear-gradient(to top,rgba(0,0,0,.55),transparent);pointer-events:none}
+.poster > *{position:relative;z-index:1}
+.poster .ps{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.9;line-height:1.2}
+.poster .pt{font-family:var(--display);font-stretch:58%;font-weight:900;text-transform:uppercase;line-height:.92;font-size:var(--pfs,19px);word-break:break-word;hyphens:auto;text-wrap:balance}
+.poster .py{font-family:var(--mono);font-size:9px;opacity:.85;margin-top:4px}
+.rv{border-top:1px dashed var(--line);padding-top:8px;display:flex;flex-direction:column;gap:5px;font-size:13px}
+.rv.quiet{border-top:0;padding-top:0}
+.rv .scs{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sc{font-family:var(--mono);font-size:13px;font-weight:500;border-radius:5px;padding:2px 7px;font-variant-numeric:tabular-nums}
+.sc small{font-family:var(--body);font-size:11px;font-weight:500}
+.sc.fresh{background:var(--theater-soft);color:var(--theater)}
+.sc.rotten{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.sc.aud{background:var(--accent-soft);color:var(--accent)}
+.sc.pend{background:var(--bg);color:var(--muted);font-family:var(--body);font-size:12px}
+.rv .n{font-size:12px;color:var(--muted)}
+.rv .tk{color:var(--ink)}
+.rv .src{color:var(--muted);font-size:12px}
+.rv .src::before{content:"— "}
+.rvl{font-size:12px;color:var(--muted)}
+.rvl a{color:var(--muted)}
+.mt{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.mtv{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:24px;line-height:1;color:var(--c);font-variant-numeric:tabular-nums}
+.mtv small{font-family:var(--body);font-size:12px;font-weight:600;margin-left:2px}
+.mtw{font-size:12px;color:var(--muted);min-width:0}
+.fbs{display:flex;gap:6px;flex-wrap:wrap}
+.fb{border:1px solid var(--line);background:transparent;border-radius:6px;padding:4px 9px;font-size:12px;cursor:pointer;color:var(--muted)}
+.fb.up[aria-pressed="true"]{background:var(--free-soft);color:var(--free);border-color:var(--free)}
+.fb.down[aria-pressed="true"]{background:var(--theater-soft);color:var(--theater);border-color:var(--theater)}
+.taste{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.taste .tt{font-size:24px}
+.taste .sub{margin:0}
+.moods{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.moods .ml{font-size:13px;font-weight:600;margin-right:4px}
+.tl{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;align-items:center}
+.muted{color:var(--muted)}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font-size:13px}
+.period{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(30px,5vw,40px);line-height:1;margin:6px 0 -14px;letter-spacing:-.01em}
+.ahead .period{margin-bottom:2px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.rems{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.rems li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"d t x" "d s x";column-gap:10px;align-items:center;font-size:14px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.rems .rd{grid-area:d;font-family:var(--mono);font-size:12px;color:var(--muted);min-width:84px}
+.rems .rd.now{color:var(--free);font-weight:600}
+.rems .rt{grid-area:t;font-weight:600;min-width:0}
+.rems .rs{grid-area:s;font-size:12px;color:var(--muted)}
+.rems .linkbtn{grid-area:x}
+.small{font-size:13px;margin:0}
+.when .today{color:var(--free);font-weight:600}
+.day.is-today{border-color:var(--ink)}
+.day.ahead-chip{color:var(--muted);border-style:dashed}
+.fb.bell[aria-pressed="true"]{background:var(--paid-soft);color:var(--paid);border-color:var(--paid)}
+.links{margin-top:auto;display:flex;flex-wrap:wrap;gap:4px 14px}
+.card.free{border-top:4px solid var(--free)} .card.sub{border-top:4px solid var(--accent)} .card.rent{border-top:4px solid var(--paid)} .card.theater{border-top:4px solid var(--theater)}
+.sub .tag.where{background:var(--accent-soft);color:var(--accent)} .rent .tag.where{background:var(--paid-soft);color:var(--paid)}
+.tag.nosub{background:var(--free-soft);color:var(--free);font-weight:600}
+.toggle{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.toggle input{accent-color:var(--free);width:16px;height:16px}
+.card .when{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;padding-right:34px}
+.card h3{margin:0;font-size:18px;line-height:1.2;text-wrap:balance;padding-right:30px}
+.meta{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:12px;border-radius:5px;padding:2px 7px;background:var(--bg);color:var(--muted);white-space:nowrap}
+.tag.where{font-weight:600}
+.free .tag.where{background:var(--free-soft);color:var(--free)} .paid .tag.where{background:var(--paid-soft);color:var(--paid)} .theater .tag.where{background:var(--theater-soft);color:var(--theater)}
+.tag.rate{border:1px solid var(--line);background:transparent;font-family:var(--mono)}
+.card p{margin:0;font-size:14px}
+.card .note{font-size:13px;color:var(--muted)}
+.card .go{font-size:14px;font-weight:600;text-decoration:none}
+.card .go.alt{font-weight:500;color:var(--muted)}
+.card .go:hover{text-decoration:underline}
+.save{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;font-size:16px;line-height:1;color:var(--muted)}
+.save[aria-pressed="true"]{color:var(--theater);border-color:var(--theater)}
+.pick{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--free)}
+
+.guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.svc{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface)}
+.svc b{display:block;margin-bottom:2px}
+.svc span{font-size:13px;color:var(--muted)}
+.notice{border:1px dashed var(--line);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:18px 30px;font-size:13px;color:var(--muted)}
+footer ul{margin:6px 0 0;padding-left:18px}
+@media (max-width:520px){.access{grid-template-columns:repeat(2,1fr)} h3{font-size:17px} .card{grid-template-columns:86px minmax(0,1fr)} .poster{--pfs:15px!important}}
+@media (prefers-reduced-motion:no-preference){.card{transition:transform .15s} .card:hover{transform:translateY(-2px)}}
+</style>
+
+</head>
+<body>
+<header class="wrap top">
+  <div class="eyebrow" id="eyebrow">United States</div>
+  <h1>What's on this weekend. <span>No extra cost first.</span></h1>
+  <p class="lede">New movies and shows for this week and the month ahead, sorted by what it costs to watch: included with streaming you have (or need no subscription at all), rent or buy, or a movie ticket. Tap the bell on anything coming soon and you'll get a reminder the day it arrives.</p>
+  <div class="dates" id="dates"></div>
+</header>
+
+<div class="rail">
+  <div class="wrap">
+    <div class="access" role="group" aria-label="How you watch">
+      <button data-a="inc" aria-pressed="true"><span class="n" id="c-inc">0</span><span class="l">Included with streaming</span></button>
+      <button data-a="rent" aria-pressed="false"><span class="n" id="c-rent">0</span><span class="l">Rent or buy</span></button>
+      <button data-a="theater" aria-pressed="false"><span class="n" id="c-theater">0</span><span class="l">In theaters</span></button>
+      <button data-a="all" aria-pressed="false"><span class="n" id="c-all">0</span><span class="l">Everything</span></button>
+    </div>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search titles, actors, services" aria-label="Search">
+      <select id="kind" aria-label="Type"><option value="">Movies + shows</option><option value="Movie">Movies</option><option value="Series">Shows</option><option value="Special">Specials</option></select>
+      <select id="rating" aria-label="Rating"><option value="">Any rating</option><option value="family">Family (G, PG)</option><option value="teen">Teen (PG-13, TV-14)</option><option value="mature">Mature (R, TV-MA)</option></select>
+      <select id="svc" aria-label="Service"><option value="">All services</option></select>
+      <label class="toggle"><input type="checkbox" id="nosub"> No subscription needed</label>
+      <select id="sort" aria-label="Sort"><option value="match">Best match for me</option><option value="pick">Top picks first</option><option value="reviews">Best reviewed</option><option value="date">By date</option></select>
+    </div>
+    <div class="chips" id="genres" role="group" aria-label="Genre"></div>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<footer class="wrap">
+  <div>Listings refresh every morning from studio and streamer announcements. Dates can shift, and free catalogs vary by region. Ratings shown are MPA ratings where one has been published; "Not rated" means none was listed. Poster cards are designed stand-ins, not official artwork; the "Poster &amp; trailer" link opens the official art on JustWatch.</div>
+  <div style="margin-top:8px">Sources:</div>
+  <ul>
+    <li><a href="https://www.boxofficemojo.com/calendar/2026-11-09/" target="_blank" rel="noopener">Box Office Mojo release calendar</a></li>
+    <li><a href="https://www.boston.com/culture/streaming/2026/11/03/new-movies-tv-streaming-november-2026/" target="_blank" rel="noopener">Boston.com: new on streaming, November 2026</a></li>
+    <li><a href="https://sumnercountysource.com/new-on-tubi-in-november-2026/" target="_blank" rel="noopener">New on Tubi, November 2026</a> · <a href="https://horrorfuel.com/2026/11/05/must-see-horror-and-thrillers-coming-to-tubi-in-november-2026/" target="_blank" rel="noopener">Tubi horror &amp; thrillers</a></li>
+    <li><a href="https://www.thewrap.com/creative-content/movies/new-on-pluto-tv-streaming-november-2026/" target="_blank" rel="noopener">TheWrap: new on Pluto TV</a></li>
+    <li><a href="https://appleworld.today/2026/10/apple-tv-unveils-the-trailer-for-its-heist-drama-12-12-12/" target="_blank" rel="noopener">AppleWorld.Today: 12 12 12</a> · <a href="https://9to5mac.com/2026/10/12/watch-the-trailer-for-apple-tvs-being-heumann/" target="_blank" rel="noopener">9to5Mac: Being Heumann</a> · <a href="https://www.vitalthrills.com/starz-november-2026/" target="_blank" rel="noopener">Starz November 2026</a> · <a href="https://www.brit.co/best-new-britbox-shows-november/" target="_blank" rel="noopener">BritBox November</a></li>
+    <li>Coming up: <a href="https://www.whats-on-netflix.com/coming-soon/first-look-at-whats-coming-to-netflix-in-december-2026/" target="_blank" rel="noopener">What's on Netflix: December</a> · <a href="https://www.documentarytube.com/blog/new-movies-and-shows-streaming-in-december-2026-what-to-watch-on-netflix-prime-video-disney-hbo-max-and-more/" target="_blank" rel="noopener">December streaming preview</a> · <a href="https://www.tvinsider.com/1298550/november-2026-streaming-guide-netflix-hulu-paramount-more/" target="_blank" rel="noopener">TV Insider: November</a></li>
+    <li>Rent or buy: <a href="https://www.tomsguide.com/entertainment/streaming/missed-it-in-theaters-heres-every-movie-finally-arriving-on-streaming-in-november-2026" target="_blank" rel="noopener">Tom's Guide</a> · <a href="https://whentostream.com/when-to-streams-november-2026-preview/" target="_blank" rel="noopener">When To Stream</a> · <a href="https://collider.com/heart-of-the-beast-brad-pitt-digital-release-date/" target="_blank" rel="noopener">Collider: Heart of the Beast</a> · <a href="https://collider.com/other-mommy-jessica-chastain-digital-release-date" target="_blank" rel="noopener">Collider: Other Mommy</a> · <a href="https://www.dreadcentral.com/news/596779/spider-horror-pic-crawlers-creeps-home-on-digital-this-november/" target="_blank" rel="noopener">Dread Central: Crawlers</a> · <a href="https://cosmicbook.news/the-odyssey-digital-4k-release-date-november-17" target="_blank" rel="noopener">The Odyssey on digital</a></li>
+    <li>Reviews: <a href="https://www.rottentomatoes.com/m/resident_evil_2026" target="_blank" rel="noopener">RT: Resident Evil</a> · <a href="https://www.rottentomatoes.com/m/the_odyssey_2026" target="_blank" rel="noopener">RT: The Odyssey</a> ·<a href="https://www.forbes.com/sites/timlammers/2026/11/02/godzilla-minus-zero-retains-superior-rotten-tomatoes-critics-score-following-early-reviews/" target="_blank" rel="noopener">Forbes on Godzilla Minus Zero</a> · <a href="https://rottentomatoes.com/m/paddington_in_peru" target="_blank" rel="noopener">RT: Paddington in Peru</a> · <a href="https://rottentomatoes.com/m/silent_night_2023" target="_blank" rel="noopener">RT: Silent Night</a> · <a href="https://www.joblo.com/?p=946428" target="_blank" rel="noopener">JoBlo: Being Heumann</a> · <a href="https://looper.com/1519193/madame-web-rotten-tomatoes-score" target="_blank" rel="noopener">Looper: Madame Web</a> · <a href="https://darkhorizons.com/ebenezer-test-screenings-score-high/" target="_blank" rel="noopener">Dark Horizons: Ebenezer</a></li>
+    <li><a href="https://www.the-numbers.com/movie/Ebenezer-(2026)" target="_blank" rel="noopener">The Numbers: Ebenezer</a> · <a href="https://www.whats-on-netflix.com/news/jessica-chastain-heartland-netflix-november-2026/" target="_blank" rel="noopener">What's on Netflix: Heartland</a> · <a href="https://www.thewrap.com/creative-content/movies/jj-abrams-great-beyond-delayed-release-date/" target="_blank" rel="noopener">TheWrap: The Great Beyond delayed</a></li>
+  </ul>
+</footer>
+
+<script>
+function boot(J){
+const UPDATED=J.updated, LINK=J.link, DATA=J.titles, REVIEWS=J.reviews, INFO=J.info;
+const DIRECTORS = new Set(["Christopher Nolan","Ti West","Zach Cregger","John Woo","Siân Heder","Guillermo del Toro","Francis Lawrence","David Ayer","Rob Savage","Shana Feste","Takashi Yamazaki","Robert Zemeckis","Charlotte Wells","Stephen Chow","Jay Duplass","James Wan","Berner","Walter Salles","David O. Russell","Fede Álvarez","Bong Joon Ho","Peter Berg","Ava DuVernay","Ron Howard","David Leitch"]);
+
+// ===== Dates =====
+const DAY = 864e5;
+const pd = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); };
+const TODAY = (()=>{const n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate());})();
+const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const WD = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], MO = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const fmt = d => `${WD[d.getDay()]} ${MO[d.getMonth()]} ${d.getDate()}`;
+const short = d => `${MO[d.getMonth()]} ${d.getDate()}`;
+// The current week runs Monday to Sunday; on a weekend day it is the week ending that Sunday.
+const WEEK0 = new Date(TODAY.getTime() - ((TODAY.getDay()+6)%7)*DAY);
+const weekIdx = d => Math.floor((pd(d.date) - WEEK0)/DAY/7);
+function label(d){
+  const dt=pd(d.date), diff=Math.round((dt-TODAY)/DAY);
+  if(diff===0) return "Today"; if(diff===1) return "Tomorrow";
+  if(diff<0 && d.a!=="free") return d.a==="theater"?"In theaters now":"Out now";
+  if(diff<0) return "Added "+short(dt);
+  return fmt(dt);
+}
+
+// ===== Storage: this browser, plus your account when the page can reach it =====
+const store = {get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let saved = new Set(store.get("ww-saved",[]));
+let taste = {fb:{},moods:[]};
+{const t=store.get("ww-taste",null); if(t&&t.fb&&Array.isArray(t.moods)) taste=t;}
+let reminders = store.get("ww-reminders",{}); // slug -> {t,date,s,a}
+let cloud = {db:null, ref:null, status:"local"}; // local | syncing | synced | unavailable
+const slug = t => t.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80);
+let pushTimer=null, writing=false, pendingPush=false;
+function persist(){
+  store.set("ww-saved",[...saved]); store.set("ww-taste",taste); store.set("ww-reminders",reminders);
+  if(!cloud.ref) return;
+  clearTimeout(pushTimer); pushTimer=setTimeout(pushCloud,600);
+}
+async function pushCloud(){
+  if(writing){pendingPush=true;return;}
+  writing=true;
+  try{ await cloud.ref.set({reminders, taste, saved:[...saved], updatedAt:new Date().toISOString()}); cloud.status="synced"; }
+  catch(e){ cloud.status="unavailable"; }
+  writing=false; renderSync();
+  if(pendingPush){pendingPush=false; pushCloud();}
+}
+async function connectCloud(){
+  try{
+    if(!window.claude||!window.claude.use) { cloud.status="unavailable"; renderSync(); return; }
+    const [db,user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    const uid = user ? await user.id() : null;
+    if(!db||!uid){ cloud.status="unavailable"; renderSync(); return; }
+    cloud.db=db; cloud.ref=db.doc("people/"+uid); cloud.status="syncing"; renderSync();
+    let first=true;
+    const timer=setTimeout(()=>{ if(first){cloud.status="unavailable"; renderSync();} },10000);
+    cloud.ref.onSnapshot(snap=>{
+      if(!snap.metadata.fromCache){clearTimeout(timer);}
+      if(snap.metadata.hasPendingWrites) return;
+      const d=snap.exists?snap.data():null;
+      if(first){
+        first=false;
+        if(d){ // merge: account wins, but keep anything only this browser had
+          reminders={...reminders,...(d.reminders||{})};
+          const ft=d.taste||{fb:{},moods:[]}; taste={fb:{...taste.fb,...(ft.fb||{})},moods:[...new Set([...(taste.moods||[]),...(ft.moods||[])])]};
+          saved=new Set([...saved,...(d.saved||[])]);
+          if(JSON.stringify(d.reminders||{})!==JSON.stringify(reminders)||JSON.stringify(d.taste||{})!==JSON.stringify(taste)) persist();
+        } else if(Object.keys(reminders).length||Object.keys(taste.fb).length||taste.moods.length||saved.size){ persist(); }
+      } else if(d){
+        reminders=d.reminders||{}; taste=d.taste||{fb:{},moods:[]}; saved=new Set(d.saved||[]);
+        store.set("ww-saved",[...saved]); store.set("ww-taste",taste); store.set("ww-reminders",reminders);
+      }
+      cloud.status="synced"; render();
+    }, ()=>{ clearTimeout(timer); cloud.status="unavailable"; renderSync(); });
+  }catch(e){ cloud.status="unavailable"; renderSync(); }
+}
+
+// ===== Match score =====
+const RATE = {family:["G","PG","TV-Y","TV-G","TV-PG"],teen:["PG-13","TV-14"],mature:["R","TV-MA","NC-17"]};
+const FW = {g:1.0,p:1.4,s:0.4,k:0.5,r:0.4};
+function tier(d){const r=d.r.split(" / ")[0];for(const k in RATE) if(RATE[k].includes(r)) return k;return "unrated"}
+function feats(d){const i=INFO[d.t]||{};return [...d.g.map(g=>"g:"+g),...(i.p||[]).map(p=>"p:"+p),"s:"+d.s.replace(/ \(.*\)/,""),"k:"+d.k,"r:"+tier(d)]}
+function signals(){
+  const c={};const add=(f,v)=>{c[f]=(c[f]||0)+v};
+  for(const d of DATA){const v=taste.fb[d.t]||0, h=saved.has(d.t)?0.4:0, rm=reminders[slug(d.t)]?0.4:0; if(v||h||rm) feats(d).forEach(f=>add(f,v+h+rm));}
+  taste.moods.forEach(g=>add("g:"+g,1.5));
+  return c;
+}
+function priorOf(d){
+  const r=REVIEWS[d.t], i=INFO[d.t]||{};
+  if(r&&r.rt){const rt=parseInt(r.rt), au=r.aud?parseInt(r.aud):null; return {v:au!=null?Math.round(rt*0.6+au*0.4):rt, basis:"Starts from its review scores"}}
+  if(r&&r.other){return {v:parseInt(r.other)*10, basis:"Starts from an early critic review"}}
+  return {v:i.prior??55, basis:i.basis||"No reviews yet"};
+}
+function nice(f){const t=f[0],v=f.slice(2);
+  if(t==="k") return v==="Series"?"shows":v==="Movie"?"movies":"specials";
+  if(t==="r") return {family:"family-rated picks",teen:"PG-13 / TV-14",mature:"R-rated picks",unrated:"unrated titles"}[v];
+  return v;}
+function match(d,sig){
+  let s=0; const parts=[];
+  for(const f of feats(d)){ const raw=sig[f]; if(!raw) continue; const c=FW[f[0]]*Math.tanh(raw/2); s+=c; parts.push([f,c]); }
+  const n=Object.keys(taste.fb).length+taste.moods.length+saved.size;
+  const alpha=Math.min(0.7,0.25+0.07*n);
+  const pref=1/(1+Math.exp(-s));
+  const pr=priorOf(d);
+  const v=Math.round(100*((1-alpha)*pr.v/100+alpha*pref));
+  parts.sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));
+  const why=parts.filter(([f])=>f[0]==="g"||f[0]==="p").slice(0,2).map(([f,c])=>{const t=f[0],nm=nice(f);
+    if(t==="p") return c>0?`You liked ${nm}'s work${DIRECTORS.has(nm)?" (director)":""}`:`You've passed on ${nm}`;
+    return c>0?`You like ${nm}`:`You've passed on ${nm}`;});
+  return {v:Math.max(1,Math.min(99,v)),why,basis:pr.basis};
+}
+function matchBadge(m){const hue=m.v>=75?"free":m.v>=55?"accent":"muted";
+  return `<div class="mt"><span class="mtv" style="--c:var(--${hue})">${m.v}<small>% match</small></span><span class="mtw">${esc([...m.why,m.basis].slice(0,3).join(" · "))}</span></div>`}
+
+// ===== Rendering =====
+const cat = d => (d.a==="free"||d.a==="paid") ? "inc" : d.a;
+const cls = d => d.a==="paid" ? "sub" : d.a;
+const state = {access:"inc",q:"",kind:"",rating:"",svc:"",genre:"",mine:false,sort:"match",nosub:false};
+let SIG = {};
+const LIVE = DATA.filter(d=>{const diff=(pd(d.date)-TODAY)/DAY; return diff>=-31 && diff<=42;});
+
+const genres = [...new Set(LIVE.flatMap(d=>d.g))].sort();
+const gEl = document.getElementById("genres");
+gEl.innerHTML = `<button class="chip" data-g="" aria-pressed="true">All genres</button><button class="chip" data-mine="1" aria-pressed="false">♥ My list</button>` +
+  genres.map(g=>`<button class="chip" data-g="${g}" aria-pressed="false">${g}</button>`).join("");
+const svcEl = document.getElementById("svc");
+[...new Set(LIVE.map(d=>d.s.replace(/ \(.*\)/,"")))].sort().forEach(s=>svcEl.insertAdjacentHTML("beforeend",`<option>${s}</option>`));
+
+function matches(d,ignoreAccess){
+  if(!ignoreAccess && state.access!=="all" && cat(d)!==state.access) return false;
+  if(state.nosub && cat(d)==="inc" && d.a!=="free") return false;
+  if(state.mine && !saved.has(d.t) && !reminders[slug(d.t)]) return false;
+  if(state.kind && d.k!==state.kind) return false;
+  if(state.svc && d.s.replace(/ \(.*\)/,"")!==state.svc) return false;
+  if(state.genre && !d.g.includes(state.genre)) return false;
+  if(state.rating){const rs=d.r.split(" / "); if(!rs.some(r=>RATE[state.rating].includes(r))) return false;}
+  if(state.q){const hay=(d.t+" "+d.sum+" "+d.s+" "+d.g.join(" ")+" "+((INFO[d.t]||{}).p||[]).join(" ")).toLowerCase(); if(!hay.includes(state.q)) return false;}
+  return true;
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+const GENRE_HUE = {Action:[8,78],Thriller:[222,40],Mystery:[255,38],Horror:[350,62],"Sci-Fi":[195,62],Comedy:[42,82],Family:[150,52],
+  Animation:[285,58],Holiday:[140,55],Drama:[24,46],Documentary:[200,22],Reality:[320,58],Sports:[16,70],Biography:[30,35],Musical:[330,55],
+  Music:[300,48],Romance:[340,58],Historical:[35,40],Faith:[45,45],Superhero:[230,62],Crime:[210,30],Adventure:[100,48],Fantasy:[265,50]};
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function poster(d){
+  const h=hash(d.t); const [hue,sat]=GENRE_HUE[d.g[0]]||[230,40];
+  const hue2=(hue+20+(h%50))%360, ang=(h>>4)%360, kind=(h>>9)%4, gap=10+((h>>12)%14);
+  const bg=`linear-gradient(${ang}deg,hsl(${hue} ${sat}% 30%),hsl(${hue2} ${Math.min(sat+10,90)}% 46%))`;
+  const pats=[`repeating-linear-gradient(${ang+90}deg,rgba(255,255,255,.14) 0 2px,transparent 2px ${gap}px)`,
+    `radial-gradient(circle at ${20+h%60}% ${15+(h>>3)%40}%,rgba(255,255,255,.35),transparent 45%)`,
+    `repeating-radial-gradient(circle at ${h%100}% 100%,rgba(255,255,255,.12) 0 2px,transparent 2px ${gap}px)`,
+    `conic-gradient(from ${ang}deg at 70% 30%,rgba(255,255,255,.25),transparent 25%,rgba(0,0,0,.2) 50%,transparent 75%)`];
+  const len=d.t.length, fs=len>40?12:len>26?14:len>16?17:20;
+  const sh=d.t.replace(/\s*\(.*?\)\s*/g," ").replace(/,? Season \d+.*$/,"").replace(/, new episode$/,"").trim();
+  return `<div class="poster" aria-hidden="true" style="--pbg:${bg};--pat:${pats[kind]};--pfs:${fs}px">
+    <div class="ps">${esc(d.s.replace(/ \(.*\)/,""))}</div>
+    <div><div class="pt">${esc(sh)}</div><div class="py">${esc(d.k==="Series"?"Series":d.y||pd(d.date).getFullYear())}</div></div></div>`;
+}
+function review(d){
+  const r=REVIEWS[d.t], q=encodeURIComponent(d.t.replace(/\s*\(.*?\)/g,"").replace(/,.*$/,""));
+  const ext=`<span class="rvl"><a href="https://www.rottentomatoes.com/search?search=${q}" target="_blank" rel="noopener">Rotten Tomatoes</a> · <a href="https://www.imdb.com/find/?q=${q}" target="_blank" rel="noopener">IMDb</a></span>`;
+  if(!r) return `<div class="rv quiet">${ext}</div>`;
+  const pills=[];
+  if(r.rt){const fresh=parseInt(r.rt)>=60;pills.push(`<span class="sc ${fresh?"fresh":"rotten"}" title="Rotten Tomatoes critics">${fresh?"●":"○"} ${r.rt}<small> critics</small></span>`)}
+  if(r.aud) pills.push(`<span class="sc aud" title="Rotten Tomatoes audience">${r.aud}<small> audience</small></span>`);
+  if(r.other) pills.push(`<span class="sc aud">${r.other}</span>`);
+  if(r.pending) pills.push(`<span class="sc pend">Reviews pending</span>`);
+  return `<div class="rv">${pills.length?`<div class="scs">${pills.join("")}${r.n?`<span class="n">${r.n}</span>`:""}</div>`:""}
+    <div class="tk">${esc(r.take)}${r.src?` <span class="src">${esc(r.src)}</span>`:""}</div>${ext}</div>`;
+}
+function rtNum(d){const r=REVIEWS[d.t];return r&&r.rt?parseInt(r.rt):(r&&r.other?80:-1)}
+function card(d){
+  const look = `https://www.justwatch.com/us/search?q=${encodeURIComponent(d.t.replace(/\s*\(.*?\)/g,"").replace(/, new episode$/,""))}`;
+  const href = d.a==="theater" ? `https://www.google.com/search?q=${encodeURIComponent(d.t+" showtimes near me")}` : d.a==="rent" ? look : LINK[d.s];
+  const go = d.a==="theater" ? "Find showtimes" : d.a==="rent" ? "Compare rental prices" : `Open ${d.s}`;
+  const isS = saved.has(d.t), future = pd(d.date) > TODAY, rem = !!reminders[slug(d.t)];
+  return `<article class="card ${cls(d)}">
+    <button class="save" data-save="${esc(d.t)}" aria-pressed="${isS}" aria-label="${isS?"Remove from":"Add to"} my list">${isS?"♥":"♡"}</button>
+    ${poster(d)}
+    <div class="body">
+    <div class="when"><span class="${pd(d.date)-TODAY===0?"today":""}">${esc(label(d))}</span>${d.pick?'<span class="pick">Top pick</span>':""}</div>
+    <h3>${esc(d.t)}</h3>
+    ${matchBadge(match(d,SIG))}
+    <div class="meta"><span class="tag where">${esc(d.s)}</span>${d.a==="free"?'<span class="tag nosub">No subscription</span>':""}<span class="tag">${d.k}</span><span class="tag rate">${esc(d.r)}</span>${d.y?`<span class="tag">${d.y}</span>`:""}${d.len?`<span class="tag">${d.len}</span>`:""}${d.g.map(g=>`<span class="tag">${g}</span>`).join("")}</div>
+    <p>${esc(d.sum)}</p>
+    ${review(d)}
+    <div class="fbs" role="group" aria-label="Teach your match score">
+      ${future?`<button class="fb bell" data-rem="${esc(d.t)}" aria-pressed="${rem}">${rem?"🔔 Reminder set":"🔔 Remind me"}</button>`:""}
+      <button class="fb up" data-fb="1" data-t="${esc(d.t)}" aria-pressed="${taste.fb[d.t]===1}">▲ More like this</button>
+      <button class="fb down" data-fb="-1" data-t="${esc(d.t)}" aria-pressed="${taste.fb[d.t]===-1}">▼ Not for me</button>
+    </div>
+    <div class="links">${href?`<a class="go" href="${href}" target="_blank" rel="noopener">${go} →</a>`:""}<a class="go alt" href="${look}" target="_blank" rel="noopener">Poster &amp; trailer</a></div>
+    </div>
+  </article>`;
+}
+function sortItems(a){
+  const byDate=(x,y)=>pd(x.date)-pd(y.date);
+  if(state.sort==="match"){const m=new Map(a.map(d=>[d,match(d,SIG).v]));return a.sort((x,y)=>m.get(y)-m.get(x)||byDate(x,y));}
+  if(state.sort==="reviews") return a.sort((x,y)=>rtNum(y)-rtNum(x)||byDate(x,y));
+  if(state.sort==="date") return a.sort(byDate);
+  return a.sort((x,y)=>(y.pick?1:0)-(x.pick?1:0)||byDate(x,y));
+}
+function block(title,sub,color,items,emptyMsg){
+  return `<section><h2><span class="dot" style="background:var(--${color})"></span>${title}</h2>${sub?`<p class="sub">${sub}</p>`:""}
+  ${items.length?`<div class="grid">${sortItems(items).map(card).join("")}</div>`:`<div class="empty">${emptyMsg||"Nothing matches these filters."}</div>`}</section>`;
+}
+const MOODS = ["Comedy","Drama","Thriller","Horror","Action","Sci-Fi","Family","Holiday","Romance","Documentary","Reality","Animation"];
+function syncNote(){
+  return {local:"Saved in this browser.",syncing:"Connecting to your account…",synced:"Synced to your account, so reminders can reach your phone.",unavailable:"Saved in this browser. Accounts, cross-device sync and push reminders are coming soon."}[cloud.status];
+}
+function renderSync(){const el=document.getElementById("sync"); if(el) el.textContent=syncNote();}
+function topPanel(){
+  const pos=[], neg=[];
+  Object.entries(SIG).filter(([f])=>f[0]==="g"||f[0]==="p").sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).forEach(([f,v])=>{ if(v>=0.9) pos.push(nice(f)); else if(v<=-0.9) neg.push(nice(f)); });
+  const n=Object.keys(taste.fb).length;
+  const learned = n||taste.moods.length ? `<div class="tl">${pos.length?`<span><b>Leaning toward:</b> ${esc(pos.slice(0,6).join(", "))}</span>`:""}${neg.length?`<span><b>Steering away from:</b> ${esc(neg.slice(0,4).join(", "))}</span>`:""}<span class="muted">${n} title${n===1?"":"s"} rated</span> <button class="linkbtn" id="reset">Reset my taste</button></div>`
+    : `<div class="tl muted">Tap ▲ or ▼ on any title and your match scores will start adjusting to you.</div>`;
+  const rems = Object.entries(reminders).map(([k,r])=>({k,...r})).filter(r=>pd(r.date)>=new Date(TODAY.getTime()-7*DAY)).sort((a,b)=>pd(a.date)-pd(b.date));
+  const remHtml = rems.length ? `<ul class="rems">${rems.map(r=>{const dt=pd(r.date),diff=Math.round((dt-TODAY)/DAY);
+      return `<li><span class="rd ${diff<=0?"now":""}">${diff===0?"Today":diff<0?"Out now":diff===1?"Tomorrow":fmt(dt)}</span><span class="rt">${esc(r.t)}</span><span class="rs">${esc(r.s)}</span><button class="linkbtn" data-unrem="${esc(r.k)}" aria-label="Remove reminder for ${esc(r.t)}">Remove</button></li>`}).join("")}</ul>`
+    : `<p class="muted small">No reminders yet. Tap 🔔 Remind me on anything coming soon.</p>`;
+  return `<div class="panels">
+    <section class="taste"><div class="th"><h2 class="tt">Your match</h2><p class="sub">A predicted fit, not a review. It starts from critic scores (or the cast and director's track record when there are none) and shifts toward your taste as you rate titles.</p></div>
+      <div class="moods" role="group" aria-label="What are you in the mood for?"><span class="ml">In the mood for:</span>${MOODS.map(g=>`<button class="chip mood" data-mood="${g}" aria-pressed="${taste.moods.includes(g)}">${g}</button>`).join("")}</div>${learned}</section>
+    <section class="taste"><div class="th"><h2 class="tt">🔔 Your reminders</h2><p class="sub">Your list of upcoming titles. Phone notifications arrive with accounts, coming soon.</p></div>${remHtml}<p class="muted small" id="sync">${syncNote()}</p></section>
+  </div>`;
+}
+function render(){
+  SIG = signals();
+  const all = LIVE.filter(d=>matches(d,true));
+  const wk0 = d => weekIdx(d)===0 || (weekIdx(d)<0 && d.a!=="free"); // this week, plus recent rentals and holdovers
+  for(const a of ["inc","rent","theater"]) document.getElementById("c-"+a).textContent = all.filter(d=>cat(d)===a && wk0(d)).length;
+  document.getElementById("c-all").textContent = all.filter(wk0).length;
+  const shown = LIVE.filter(d=>matches(d,false));
+  const acc = state.access, show = a => acc==="all"||acc===a;
+  const end0 = new Date(WEEK0.getTime()+6*DAY);
+  let html = topPanel();
+  html += `<h2 class="period">This week · ${short(WEEK0)}–${short(end0)}</h2>`;
+  const now = shown.filter(wk0);
+  if(show("inc")){
+    html += block("No subscription needed","Free, ad-supported services. No account or credit card required.","free",now.filter(d=>d.a==="free"),"No new free premieres this week match these filters. See the earlier additions below.");
+    if(!state.nosub) html += block("Included with your subscriptions","No extra cost if you already subscribe. Covers Netflix, Hulu, Disney+, HBO Max, Prime Video, Apple TV, Peacock, Paramount+, Starz, BritBox and MGM+.","accent",now.filter(d=>d.a==="paid"));
+  }
+  if(show("rent")) html += block("Rent or buy","Costs extra on top of any subscription. Recent theatrical releases usually start around $20 to rent or $25 to buy. Available through Apple TV, Prime Video, Fandango at Home, YouTube and similar stores.","paid",now.filter(d=>d.a==="rent"));
+  if(show("theater")){
+    html += block("In theaters","Ticketed. Opening this week, plus recent releases still playing.","theater",now.filter(d=>d.a==="theater"));
+    html += `<div class="notice"><b>Schedule change:</b> J.J. Abrams' <i>The Great Beyond</i> (Glen Powell, Jenna Ortega) still shows Nov 13 on some calendars, but Warner Bros. moved it to October 1, 2027.</div>`;
+  }
+  // The weeks ahead
+  const maxW = Math.max(0,...shown.map(weekIdx));
+  for(let w=1; w<=Math.min(maxW,5); w++){
+    const items = shown.filter(d=>weekIdx(d)===w && (acc==="all"||cat(d)===acc));
+    if(!items.length) continue;
+    const s=new Date(WEEK0.getTime()+w*7*DAY), e=new Date(s.getTime()+6*DAY);
+    html += `<section class="ahead"><h2 class="period">${w===1?"Next week":"Week of "+short(s)} · ${short(s)}–${short(e)}</h2><p class="sub">Tap 🔔 to get a reminder the day it arrives.</p><div class="grid">${sortItems(items).map(card).join("")}</div></section>`;
+  }
+  if(show("inc")){
+    html += block("Added earlier this month, no subscription","Arrived on free services in the past few weeks and still streaming.","free",shown.filter(d=>d.a==="free"&&weekIdx(d)<0));
+    html += `<section><h2><span class="dot" style="background:var(--free)"></span>Where to stream free</h2><p class="sub">All legal, no subscription. Most run ads.</p><div class="guide">
+    <div class="svc"><b>Tubi</b><span>Biggest free movie library; adds originals most weeks. No account needed.</span></div>
+    <div class="svc"><b>Pluto TV</b><span>Live channels plus on-demand. Big monthly drops, strong on '90s and 2000s hits.</span></div>
+    <div class="svc"><b>The Roku Channel</b><span>Works beyond Roku devices too, including Google TV and the web.</span></div>
+    <div class="svc"><b>Plex</b><span>Free movies and live channels in a single app, separate from its personal media server.</span></div>
+    <div class="svc"><b>Kanopy &amp; Hoopla</b><span>Ad-free with a library card. Indie, classic and award-winning films.</span></div>
+    <div class="svc"><b>PBS App</b><span>New episodes of NOVA, Masterpiece and more usually stay free for a couple of weeks.</span></div>
+  </div></section>`;
+  }
+  document.getElementById("main").innerHTML = html;
+}
+function renderHeader(){
+  document.getElementById("eyebrow").textContent = `Updated ${fmt(pd(UPDATED))} · United States`;
+  const days=[3,4,5,6].map(i=>new Date(WEEK0.getTime()+i*DAY));
+  document.getElementById("dates").innerHTML = days.map(d=>`<div class="day ${iso(d)===iso(TODAY)?"is-today":""}"><b>${WD[d.getDay()]}</b> ${short(d)}</div>`).join("") + `<div class="day ahead-chip">+ the month ahead</div>`;
+}
+
+document.querySelector(".access").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.access=b.dataset.a;document.querySelectorAll(".access button").forEach(x=>x.setAttribute("aria-pressed",x===b));store.set("ww-access",state.access);render();});
+gEl.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;
+  if(b.dataset.mine){state.mine=!state.mine;b.setAttribute("aria-pressed",state.mine);}
+  else{state.genre=b.dataset.g;gEl.querySelectorAll("[data-g]").forEach(x=>x.setAttribute("aria-pressed",x===b));}
+  render();});
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();render();});
+for(const id of ["kind","rating","svc","sort"]) document.getElementById(id).addEventListener("change",e=>{state[id]=e.target.value;render();});
+document.getElementById("nosub").addEventListener("change",e=>{state.nosub=e.target.checked;render();});
+document.getElementById("main").addEventListener("click",e=>{
+  const r=e.target.closest("[data-rem]"); if(r){const d=DATA.find(x=>x.t===r.dataset.rem), k=slug(d.t);
+    if(reminders[k]) delete reminders[k]; else reminders[k]={t:d.t,date:d.date,s:d.s,a:d.a};
+    persist(); render(); return;}
+  const u=e.target.closest("[data-unrem]"); if(u){delete reminders[u.dataset.unrem]; persist(); render(); return;}
+  const f=e.target.closest(".fb[data-fb]"); if(f){const t=f.dataset.t,v=+f.dataset.fb; if(taste.fb[t]===v) delete taste.fb[t]; else taste.fb[t]=v; persist(); render(); return;}
+  const m=e.target.closest(".mood"); if(m){const g=m.dataset.mood,i=taste.moods.indexOf(g); i>=0?taste.moods.splice(i,1):taste.moods.push(g); persist(); render(); return;}
+  if(e.target.id==="reset"){taste={fb:{},moods:[]}; persist(); render(); return;}
+  const b=e.target.closest(".save");if(!b)return;const t=b.dataset.save;saved.has(t)?saved.delete(t):saved.add(t);persist();render();});
+const lastA = store.get("ww-access",null);
+if(lastA && ["inc","rent","theater","all"].includes(lastA)){state.access=lastA;document.querySelectorAll(".access button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.a===lastA));}
+renderHeader(); render(); connectCloud();
+
+}
+fetch("data/titles.json",{cache:"no-cache"}).then(r=>{if(!r.ok) throw new Error(r.status); return r.json();}).then(boot).catch(()=>{
+  document.getElementById("main").innerHTML='<div class="notice">The listings couldn\'t load. Check your connection and refresh the page.</div>';
+});
+if("serviceWorker" in navigator){ window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+</script>
+</body>
+</html>

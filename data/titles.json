@@ -1,0 +1,1943 @@
+{
+ "updated": "2026-11-09",
+ "link": {
+  "Tubi": "https://tubitv.com",
+  "Pluto TV": "https://pluto.tv",
+  "Netflix": "https://www.netflix.com",
+  "Hulu": "https://www.hulu.com",
+  "HBO Max": "https://www.hbomax.com",
+  "Prime Video": "https://www.amazon.com/primevideo",
+  "Peacock": "https://www.peacocktv.com",
+  "Paramount+": "https://www.paramountplus.com",
+  "Disney+": "https://www.disneyplus.com",
+  "Apple TV": "https://tv.apple.com",
+  "Starz": "https://www.starz.com",
+  "BritBox": "https://www.britbox.com",
+  "MGM+": "https://www.mgmplus.com"
+ },
+ "titles": [
+  {
+   "t": "Don't Quit",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Sports"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-13",
+   "pick": true,
+   "sum": "A new Tubi Original boxing thriller, and the free service's biggest premiere of the weekend. Watch on any device with no account required."
+  },
+  {
+   "t": "Silent Night",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Thriller"
+   ],
+   "r": "R",
+   "y": 2023,
+   "date": "2026-11-15",
+   "pick": true,
+   "sum": "John Woo's nearly wordless revenge thriller. A father loses his voice and his son to gang violence on Christmas Eve, then spends a year training to settle the score."
+  },
+  {
+   "t": "Love After Lockup",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Series",
+   "g": [
+    "Reality"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-12",
+   "sum": "The long-running reality series following couples who met while one partner was incarcerated, as they try to make it work on the outside."
+  },
+  {
+   "t": "The Hunger Games (all five films)",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Sci-Fi"
+   ],
+   "r": "PG-13",
+   "date": "2026-11-01",
+   "pick": true,
+   "sum": "The full series is streaming free with ads. A good catch-up before the prequel Sunrise on the Reaping hits theaters Nov 20. (Peacock also adds them Nov 14 for subscribers.)"
+  },
+  {
+   "t": "Monty Python and the Holy Grail",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Comedy"
+   ],
+   "r": "PG",
+   "y": 1975,
+   "date": "2026-11-05",
+   "sum": "King Arthur and his knights hunt for the Grail on a budget so small they use coconuts for horses. Still one of the most quoted comedies ever made."
+  },
+  {
+   "t": "Insidious: The Red Door",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Horror"
+   ],
+   "r": "PG-13",
+   "y": 2023,
+   "date": "2026-11-04",
+   "sum": "Patrick Wilson directs and stars as the Lambert family is pulled back into the spirit realm ten years after the first films."
+  },
+  {
+   "t": "Aftersun",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Drama"
+   ],
+   "r": "R",
+   "y": 2022,
+   "date": "2026-11-01",
+   "sum": "A woman revisits a holiday she took with her young father in the '90s. Quiet, devastating, and one of the best-reviewed films of its year. Also on Pluto TV."
+  },
+  {
+   "t": "Kung Fu Hustle",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Comedy"
+   ],
+   "r": "R",
+   "y": 2004,
+   "date": "2026-11-01",
+   "sum": "Stephen Chow's cartoon-style martial arts comedy about a wannabe gangster and a run-down tenement full of hidden kung fu masters."
+  },
+  {
+   "t": "Meet the Parents",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Comedy"
+   ],
+   "r": "PG-13",
+   "y": 2000,
+   "date": "2026-11-01",
+   "sum": "Ben Stiller meets Robert De Niro's suspicious ex-CIA father-in-law. Timely: the fourth film opens in theaters Nov 25."
+  },
+  {
+   "t": "Mission: Impossible collection",
+   "a": "free",
+   "s": "Pluto TV",
+   "k": "Movie",
+   "g": [
+    "Action"
+   ],
+   "r": "PG-13",
+   "date": "2026-11-01",
+   "sum": "Pluto has added a run of the Tom Cruise spy series, from the 1996 original through Dead Reckoning. Free, no sign-up."
+  },
+  {
+   "t": "Galaxy Quest",
+   "a": "free",
+   "s": "Pluto TV",
+   "k": "Movie",
+   "g": [
+    "Comedy",
+    "Sci-Fi"
+   ],
+   "r": "PG",
+   "y": 1999,
+   "date": "2026-11-01",
+   "sum": "The washed-up cast of a cancelled space TV show gets recruited by real aliens who think the show was a documentary."
+  },
+  {
+   "t": "Ghostbusters & Ghostbusters II",
+   "a": "free",
+   "s": "Pluto TV",
+   "k": "Movie",
+   "g": [
+    "Comedy",
+    "Family"
+   ],
+   "r": "PG",
+   "date": "2026-11-01",
+   "sum": "The original paranormal exterminators and their slime-filled sequel. Easy family movie night."
+  },
+  {
+   "t": "White Christmas",
+   "a": "free",
+   "s": "Pluto TV",
+   "k": "Movie",
+   "g": [
+    "Holiday",
+    "Musical"
+   ],
+   "r": "Not rated",
+   "y": 1954,
+   "date": "2026-11-01",
+   "sum": "Bing Crosby and Danny Kaye stage a show to save their old general's Vermont inn. Leads Pluto's holiday lineup."
+  },
+  {
+   "t": "Jingle All the Way",
+   "a": "free",
+   "s": "Pluto TV",
+   "k": "Movie",
+   "g": [
+    "Holiday",
+    "Comedy",
+    "Family"
+   ],
+   "r": "PG",
+   "y": 1996,
+   "date": "2026-11-01",
+   "sum": "Arnold Schwarzenegger battles every other parent in town for the year's must-have toy on Christmas Eve."
+  },
+  {
+   "t": "Arthur Christmas",
+   "a": "free",
+   "s": "Pluto TV",
+   "k": "Movie",
+   "g": [
+    "Holiday",
+    "Animation",
+    "Family"
+   ],
+   "r": "PG",
+   "y": 2011,
+   "date": "2026-11-01",
+   "sum": "Santa's clumsy younger son races to deliver one forgotten present before sunrise. A modern animated holiday favorite."
+  },
+  {
+   "t": "Forrest Gump",
+   "a": "free",
+   "s": "Pluto TV",
+   "k": "Movie",
+   "g": [
+    "Drama"
+   ],
+   "r": "PG-13",
+   "y": 1994,
+   "date": "2026-11-01",
+   "sum": "Tom Hanks drifts through three decades of American history. Best Picture winner, free with ads."
+  },
+  {
+   "t": "Saw X",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Horror"
+   ],
+   "r": "R",
+   "y": 2023,
+   "date": "2026-11-19",
+   "sum": "Jigsaw travels to Mexico for an experimental cancer cure and turns his traps on the scammers who sold it to him."
+  },
+  {
+   "t": "The Brothers Garcia",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Series",
+   "g": [
+    "Comedy",
+    "Family"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-19",
+   "sum": "The early-2000s Nickelodeon sitcom about a Mexican-American family in San Antonio arrives with its movie, Mysteries of the Maya, and the revival The Garcias."
+  },
+  {
+   "t": "Kong: Skull Island",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Adventure"
+   ],
+   "r": "PG-13",
+   "y": 2017,
+   "date": "2026-11-20",
+   "sum": "A 1973 expedition to an uncharted island meets the giant ape who rules it."
+  },
+  {
+   "t": "Twisted Sanctuary",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Thriller",
+    "Horror"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-24",
+   "sum": "Tubi Original. A quiet suburban woman hides dark secrets, and the handymen she invites into her home keep disappearing."
+  },
+  {
+   "t": "Sidelined 3: End Game",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Romance",
+    "Drama"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-26",
+   "pick": true,
+   "sum": "The final chapter of Tubi's hit teen romance franchise starring Noah Beck and Siena Agudong."
+  },
+  {
+   "t": "Gaskins: The Hitchhiker Killer",
+   "a": "free",
+   "s": "Tubi",
+   "k": "Movie",
+   "g": [
+    "Crime",
+    "Horror"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-27",
+   "sum": "Tubi Original true-crime thriller about South Carolina serial killer Pee Wee Gaskins."
+  },
+  {
+   "t": "Heartland",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Thriller",
+    "Mystery",
+    "Music"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-13",
+   "pick": true,
+   "sum": "Jessica Chastain plays a semi-retired country star who returns to Nashville when her niece, a rising singer, disappears. Directed by Shana Feste, with Garrett Hedlund, Ross Lynch and Jennifer Nettles."
+  },
+  {
+   "t": "Cunk on Cinema",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Special",
+   "g": [
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-15",
+   "sum": "Philomena Cunk, the cheerfully clueless documentary host, takes on the history of film."
+  },
+  {
+   "t": "The Empress, Season 3",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Series",
+   "g": [
+    "Drama",
+    "Historical"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-12",
+   "sum": "The German period drama about Empress Elisabeth of Austria returns for a third season."
+  },
+  {
+   "t": "Smile + Insidious",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Horror"
+   ],
+   "r": "R / PG-13",
+   "date": "2026-11-15",
+   "sum": "Two modern horror hits land on Netflix: Smile (R) and the original Insidious (PG-13)."
+  },
+  {
+   "t": "The Secret Lives of Mormon Wives: Orange County",
+   "a": "paid",
+   "s": "Hulu",
+   "k": "Series",
+   "g": [
+    "Reality"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-12",
+   "sum": "The MomTok reality franchise heads to Southern California with a new cast of influencer moms."
+  },
+  {
+   "t": "Paddington in Peru",
+   "a": "paid",
+   "s": "Hulu",
+   "k": "Movie",
+   "g": [
+    "Family",
+    "Comedy",
+    "Adventure"
+   ],
+   "r": "PG",
+   "y": 2025,
+   "date": "2026-11-15",
+   "pick": true,
+   "sum": "Paddington and the Browns travel to Peru to find his Aunt Lucy, who has gone missing from her retirement home. The safest pick for kids this weekend."
+  },
+  {
+   "t": "The Baltimorons",
+   "a": "paid",
+   "s": "Hulu",
+   "k": "Movie",
+   "g": [
+    "Comedy",
+    "Romance"
+   ],
+   "r": "Not rated",
+   "y": 2025,
+   "date": "2026-11-13",
+   "sum": "A recovering comedian and the dentist fixing his broken tooth spend a strange Christmas Eve together in Baltimore."
+  },
+  {
+   "t": "Madame Web",
+   "a": "paid",
+   "s": "HBO Max",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Superhero"
+   ],
+   "r": "PG-13",
+   "y": 2024,
+   "date": "2026-11-14",
+   "sum": "Dakota Johnson plays a New York paramedic who starts seeing the future, from Sony's Spider-Man side universe."
+  },
+  {
+   "t": "Crown of Deceit: Inside the Miss Universe Scandal",
+   "a": "paid",
+   "s": "HBO Max",
+   "k": "Series",
+   "g": [
+    "Documentary"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-13",
+   "sum": "A docuseries on the controversy behind the Miss Universe pageant."
+  },
+  {
+   "t": "The Chosen, Season 6",
+   "a": "paid",
+   "s": "Prime Video",
+   "k": "Series",
+   "g": [
+    "Drama",
+    "Faith"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-15",
+   "sum": "The crowd-funded life-of-Jesus drama returns with its sixth season."
+  },
+  {
+   "t": "Frasier (2023), Seasons 1–2",
+   "a": "paid",
+   "s": "Prime Video",
+   "k": "Series",
+   "g": [
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-14",
+   "sum": "Kelsey Grammer's revival, with Frasier back in Boston near his firefighter son."
+  },
+  {
+   "t": "The Good Daughter",
+   "a": "paid",
+   "s": "Peacock",
+   "k": "Series",
+   "g": [
+    "Drama",
+    "Thriller"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-12",
+   "sum": "Rose Byrne and Meghann Fahy star in this limited series from Karin Slaughter's bestseller, about two sisters scarred by a violent attack in their childhood. All episodes drop at once."
+  },
+  {
+   "t": "12 12 12",
+   "a": "paid",
+   "s": "Apple TV",
+   "k": "Series",
+   "g": [
+    "Thriller",
+    "Crime"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-13",
+   "pick": true,
+   "sum": "Anthony Mackie plays a disgraced FBI agent chasing Jamie Dornan's career criminal across Europe after a raid on a Zurich bank vault. Two episodes Friday, then one a week through Christmas."
+  },
+  {
+   "t": "Being Heumann",
+   "a": "paid",
+   "s": "Apple TV",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Biography"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-13",
+   "sum": "From CODA director Siân Heder: the true story of the 1977 sit-in that occupied a San Francisco federal building for disability rights. Ruth Madeley stars with Mark Ruffalo."
+  },
+  {
+   "t": "S.W.A.T. Exiles, new episode",
+   "a": "paid",
+   "s": "Starz",
+   "k": "Series",
+   "g": [
+    "Action",
+    "Crime"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-13",
+   "sum": "Shemar Moore's Hondo leads a unit of green recruits. This week the team handles a middle school lockdown."
+  },
+  {
+   "t": "Blue Lights, Season 4",
+   "a": "paid",
+   "s": "BritBox",
+   "k": "Series",
+   "g": [
+    "Drama",
+    "Crime"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-12",
+   "sum": "The BAFTA-winning police drama about rookie officers in Belfast returns for a fourth season."
+  },
+  {
+   "t": "The Hunger Games films",
+   "a": "paid",
+   "s": "Peacock",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Sci-Fi"
+   ],
+   "r": "PG-13",
+   "date": "2026-11-14",
+   "sum": "All five films arrive for Peacock subscribers. They're already free on Tubi with ads, if you'd rather not pay."
+  },
+  {
+   "t": "PAW Patrol: The Dino Movie",
+   "a": "paid",
+   "s": "Paramount+",
+   "k": "Movie",
+   "g": [
+    "Animation",
+    "Family"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-12",
+   "sum": "The pups go prehistoric in a new feature for the preschool set."
+  },
+  {
+   "t": "Kids' Choice Awards 2026",
+   "a": "paid",
+   "s": "Paramount+",
+   "k": "Special",
+   "g": [
+    "Family"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-14",
+   "sum": "Nickelodeon's slime-heavy awards show streams on Paramount+."
+  },
+  {
+   "t": "A Proud Family Wizmas",
+   "a": "paid",
+   "s": "Disney+",
+   "k": "Special",
+   "g": [
+    "Holiday",
+    "Animation",
+    "Family"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-14",
+   "sum": "Holiday special episode from The Proud Family: Louder and Prouder."
+  },
+  {
+   "t": "I'm Still Here",
+   "a": "paid",
+   "s": "Hulu",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Historical"
+   ],
+   "r": "PG-13",
+   "y": 2024,
+   "date": "2026-11-17",
+   "sum": "Walter Salles' Oscar-winning Brazilian drama about a mother holding her family together after her husband disappears under the military dictatorship."
+  },
+  {
+   "t": "Splash City",
+   "a": "paid",
+   "s": "Starz",
+   "k": "Movie",
+   "g": [
+    "Crime",
+    "Drama"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-17",
+   "sum": "A Starz-exclusive crime drama directed by Berner and Alex Ferrufino."
+  },
+  {
+   "t": "Madden",
+   "a": "paid",
+   "s": "Prime Video",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Biography",
+    "Sports"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-18",
+   "sum": "David O. Russell's film about football coach and broadcaster John Madden, with Nicolas Cage in the title role."
+  },
+  {
+   "t": "Tony",
+   "a": "paid",
+   "s": "HBO Max",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Biography"
+   ],
+   "r": "R",
+   "date": "2026-11-20",
+   "sum": "A biopic of a young Anthony Bourdain, before the fame, filmed in Massachusetts. Arrives on streaming after its summer theatrical run."
+  },
+  {
+   "t": "Percy Jackson and the Olympians, Season 3",
+   "a": "paid",
+   "s": "Disney+",
+   "k": "Series",
+   "g": [
+    "Fantasy",
+    "Family",
+    "Adventure"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-20",
+   "sum": "The demigod adventure series adapts the third book in Rick Riordan's series."
+  },
+  {
+   "t": "They Will Kill You",
+   "a": "paid",
+   "s": "Prime Video",
+   "k": "Movie",
+   "g": [
+    "Horror",
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-20",
+   "sum": "Horror-comedy starring Zazie Beetz as a woman who takes a job in a New York high-rise run by a murderous cult."
+  },
+  {
+   "t": "Outlander: Blood of My Blood, new episode",
+   "a": "paid",
+   "s": "Starz",
+   "k": "Series",
+   "g": [
+    "Drama",
+    "Historical"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-20",
+   "sum": "The Outlander prequel about Claire's and Jamie's parents returns after a week off, two episodes before its finale."
+  },
+  {
+   "t": "Yellowjackets, Season 4",
+   "a": "paid",
+   "s": "Paramount+",
+   "k": "Series",
+   "g": [
+    "Thriller",
+    "Horror"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-20",
+   "sum": "The fourth and final season of the survival thriller about a girls' soccer team stranded in the wilderness."
+  },
+  {
+   "t": "Alien: Romulus",
+   "a": "paid",
+   "s": "Peacock",
+   "k": "Movie",
+   "g": [
+    "Sci-Fi",
+    "Horror"
+   ],
+   "r": "R",
+   "y": 2024,
+   "date": "2026-11-21",
+   "sum": "Fede Álvarez's back-to-basics Alien film: young colonists scavenging a derelict space station meet the franchise's deadliest life form."
+  },
+  {
+   "t": "Mickey 17",
+   "a": "paid",
+   "s": "Hulu",
+   "k": "Movie",
+   "g": [
+    "Sci-Fi",
+    "Comedy"
+   ],
+   "r": "R",
+   "y": 2025,
+   "date": "2026-11-23",
+   "sum": "Bong Joon Ho's follow-up to Parasite. Robert Pattinson plays an 'expendable' worker on an ice-planet colony who gets reprinted every time he dies."
+  },
+  {
+   "t": "Dig",
+   "a": "paid",
+   "s": "Peacock",
+   "k": "Series",
+   "g": [
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-23",
+   "pick": true,
+   "sum": "Amy Poehler leads a new comedy series set on an archaeological dig, with Jason Mantzoukas. All episodes at once."
+  },
+  {
+   "t": "The Trials of Karen Read",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Series",
+   "g": [
+    "Documentary",
+    "Crime"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-23",
+   "sum": "A docuseries on the Massachusetts murder trials that became a national obsession."
+  },
+  {
+   "t": "New Wave",
+   "a": "paid",
+   "s": "MGM+",
+   "k": "Series",
+   "g": [
+    "Documentary",
+    "Music"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-23",
+   "sum": "Four-part docuseries on New Wave music from 1977 to 1987 and how it pushed alternative culture into the mainstream."
+  },
+  {
+   "t": "Blade Runner 2099",
+   "a": "paid",
+   "s": "Prime Video",
+   "k": "Series",
+   "g": [
+    "Sci-Fi",
+    "Thriller"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-25",
+   "pick": true,
+   "sum": "The long-awaited series continuation of the Blade Runner films, starring Michelle Yeoh."
+  },
+  {
+   "t": "The Mosquito Bowl",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Sports",
+    "Historical"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-25",
+   "sum": "Peter Berg's film about the 1944 football game played by Marines on Guadalcanal before the Battle of Okinawa."
+  },
+  {
+   "t": "Way of the Warrior Kid",
+   "a": "paid",
+   "s": "Apple TV",
+   "k": "Movie",
+   "g": [
+    "Family",
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-25",
+   "sum": "Family film based on Jocko Willink's book about a bullied kid whose Navy SEAL uncle helps him get tougher over one summer."
+  },
+  {
+   "t": "The Hunting Wives, Season 2",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Series",
+   "g": [
+    "Thriller",
+    "Drama"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-26",
+   "sum": "The steamy Texas thriller with Brittany Snow and Malin Akerman returns."
+  },
+  {
+   "t": "M3GAN 2.0",
+   "a": "paid",
+   "s": "Peacock",
+   "k": "Movie",
+   "g": [
+    "Sci-Fi",
+    "Horror"
+   ],
+   "r": "PG-13",
+   "y": 2025,
+   "date": "2026-11-26",
+   "sum": "The killer doll returns, this time upgraded to fight a new military-grade android."
+  },
+  {
+   "t": "The Super Mario Galaxy Movie",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Animation",
+    "Family",
+    "Adventure"
+   ],
+   "r": "Not rated",
+   "y": 2026,
+   "date": "2026-11-30",
+   "pick": true,
+   "sum": "Mario and friends head to space in the sequel to the 2023 animated hit."
+  },
+  {
+   "t": "Trinity",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Series",
+   "g": [
+    "Thriller"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-01",
+   "sum": "Political thriller: a nuclear submarine officer uncovers secrets that may tie a defense secretary to a global threat."
+  },
+  {
+   "t": "In a Holidaze",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Holiday",
+    "Romance",
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-02",
+   "sum": "A woman stuck in a Christmas time loop has to confess her feelings to her lifelong crush to break it."
+  },
+  {
+   "t": "The Man With the Bag",
+   "a": "paid",
+   "s": "Prime Video",
+   "k": "Movie",
+   "g": [
+    "Holiday",
+    "Comedy",
+    "Action"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-02",
+   "sum": "Arnold Schwarzenegger plays Santa, who uses the naughty list to track down whoever stole his magic bag."
+  },
+  {
+   "t": "Pride and Prejudice",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Series",
+   "g": [
+    "Romance",
+    "Drama",
+    "Historical"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-03",
+   "pick": true,
+   "sum": "A six-part adaptation of Jane Austen's novel with Emma Corrin as Elizabeth Bennet and Jack Lowden as Mr. Darcy."
+  },
+  {
+   "t": "14TH",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Documentary"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-04",
+   "sum": "Ava DuVernay, director of 13TH, examines the 14th Amendment and who gets to belong in America."
+  },
+  {
+   "t": "Ghostsmas",
+   "a": "paid",
+   "s": "Paramount+",
+   "k": "Special",
+   "g": [
+    "Comedy",
+    "Holiday"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-10",
+   "sum": "A two-episode holiday special with the cast of CBS's Ghosts."
+  },
+  {
+   "t": "The Murder of JonBenét Ramsey",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Series",
+   "g": [
+    "Crime",
+    "Drama"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-10",
+   "sum": "Limited drama series with Melissa McCarthy and Clive Owen as the Ramseys, amid a flawed investigation and a media frenzy."
+  },
+  {
+   "t": "Bad Day",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-11",
+   "sum": "Cameron Diaz plays a single mom trying to keep one promise to her daughter during a day that keeps going wrong."
+  },
+  {
+   "t": "In Waves",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Movie",
+   "g": [
+    "Animation",
+    "Drama",
+    "Romance"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-11",
+   "sum": "Animated drama about two teens in Southern California surf culture whose romance is upended by a sudden illness."
+  },
+  {
+   "t": "Tantara",
+   "a": "paid",
+   "s": "Netflix",
+   "k": "Series",
+   "g": [
+    "Drama"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-11",
+   "sum": "Korean drama with Song Hye-kyo and Gong Yoo about friends from humble beginnings chasing success in 1970s showbiz."
+  },
+  {
+   "t": "Heart of the Beast",
+   "a": "rent",
+   "s": "Rent or buy digital",
+   "k": "Movie",
+   "g": [
+    "Thriller",
+    "Adventure"
+   ],
+   "r": "PG-13",
+   "len": "1h 41m",
+   "date": "2026-11-10",
+   "pick": true,
+   "sum": "Brad Pitt plays a former special forces soldier stranded in the Alaskan wilderness with his dog after a plane crash. David Ayer directs; J.K. Simmons co-stars."
+  },
+  {
+   "t": "Other Mommy",
+   "a": "rent",
+   "s": "Rent or buy digital",
+   "k": "Movie",
+   "g": [
+    "Horror"
+   ],
+   "r": "R",
+   "len": "1h 33m",
+   "date": "2026-11-10",
+   "sum": "Jessica Chastain stars in Rob Savage's horror film about a young girl, Bela, and the sinister 'Other Mommy' who appears to her. Based on Josh Malerman's novel."
+  },
+  {
+   "t": "Crawlers",
+   "a": "rent",
+   "s": "Rent or buy digital",
+   "k": "Movie",
+   "g": [
+    "Horror",
+    "Thriller"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-10",
+   "sum": "An apartment manager (Matilda Lutz) with a fear of spiders is stuck in a quarantined building that turns out to be overrun by venomous ones."
+  },
+  {
+   "t": "Pan's Labyrinth (4K restoration)",
+   "a": "rent",
+   "s": "Rent or buy digital",
+   "k": "Movie",
+   "g": [
+    "Fantasy",
+    "Drama"
+   ],
+   "r": "R",
+   "y": 2006,
+   "date": "2026-11-10",
+   "sum": "Guillermo del Toro's dark fairy tale set in 1944 Spain arrives on digital in a new 4K restoration."
+  },
+  {
+   "t": "Resident Evil",
+   "a": "rent",
+   "s": "Rent or buy digital",
+   "k": "Movie",
+   "g": [
+    "Horror",
+    "Action"
+   ],
+   "r": "R",
+   "len": "1h 34m",
+   "date": "2026-11-03",
+   "sum": "Zach Cregger's (Weapons) reboot follows a medical courier caught in one terrifying night of chaos. The best-reviewed video game movie ever on Rotten Tomatoes."
+  },
+  {
+   "t": "The Odyssey",
+   "a": "rent",
+   "s": "Rent or buy digital",
+   "k": "Movie",
+   "g": [
+    "Adventure",
+    "Action",
+    "Fantasy"
+   ],
+   "r": "R",
+   "len": "2h 52m",
+   "date": "2026-11-17",
+   "pick": true,
+   "sum": "Christopher Nolan's epic, with Matt Damon as Odysseus trying to get home after the Trojan War, plus Tom Holland, Anne Hathaway and Lupita Nyong'o. Some stores may sell it before offering rentals."
+  },
+  {
+   "t": "Ebenezer: A Christmas Carol",
+   "a": "theater",
+   "s": "Theaters (wide)",
+   "k": "Movie",
+   "g": [
+    "Horror",
+    "Holiday",
+    "Drama"
+   ],
+   "r": "PG-13",
+   "date": "2026-11-13",
+   "pick": true,
+   "len": "2h 0m",
+   "sum": "Ti West (X, Pearl) turns Dickens into a ghost story, with Johnny Depp as Scrooge and Ian McKellen, Daisy Ridley and Sam Claflin. Rated PG-13 for frightening material, so it's spookier than most versions."
+  },
+  {
+   "t": "I Play Rocky",
+   "a": "theater",
+   "s": "Theaters (limited, wide Nov 20)",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Biography"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-13",
+   "sum": "The story behind Sylvester Stallone's fight to make Rocky, with Matt Dillon and AnnaSophia Robb. Opens in select cities Nov 13 and nationwide Nov 20."
+  },
+  {
+   "t": "The Angry Birds Movie (10th anniversary)",
+   "a": "theater",
+   "s": "Theaters (limited)",
+   "k": "Movie",
+   "g": [
+    "Animation",
+    "Family",
+    "Comedy"
+   ],
+   "r": "PG",
+   "y": 2016,
+   "date": "2026-11-13",
+   "len": "1h 37m",
+   "sum": "A limited anniversary re-release, in 3D at some locations. An easy outing for younger kids."
+  },
+  {
+   "t": "Godzilla Minus Zero",
+   "a": "theater",
+   "s": "Theaters + IMAX",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Sci-Fi",
+    "Horror"
+   ],
+   "r": "R",
+   "date": "2026-11-06",
+   "len": "2h 15m",
+   "sum": "Takashi Yamazaki's follow-up to Godzilla Minus One. The first R-rated Godzilla film, for bloody violence. Shot for IMAX."
+  },
+  {
+   "t": "The Hunger Games: Sunrise on the Reaping",
+   "a": "theater",
+   "s": "Theaters (wide)",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Sci-Fi"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-20",
+   "len": "2h 30m",
+   "pick": true,
+   "sum": "The prequel about a young Haymitch Abernathy's Hunger Games, with Elle Fanning, Ralph Fiennes and Jesse Plemons."
+  },
+  {
+   "t": "A Beautiful Mind (25th anniversary)",
+   "a": "theater",
+   "s": "Theaters (limited)",
+   "k": "Movie",
+   "g": [
+    "Drama",
+    "Biography"
+   ],
+   "r": "PG-13",
+   "y": 2001,
+   "date": "2026-11-22",
+   "len": "2h 15m",
+   "sum": "Limited anniversary screenings of the Best Picture winner with Russell Crowe as mathematician John Nash."
+  },
+  {
+   "t": "Hexed",
+   "a": "theater",
+   "s": "Theaters",
+   "k": "Movie",
+   "g": [
+    "Animation",
+    "Family",
+    "Fantasy"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-25",
+   "sum": "Disney's new animated feature about a girl who discovers her family's magical past, with Hailee Steinfeld, Rashida Jones and Stephen Fry."
+  },
+  {
+   "t": "Focker-in-Law",
+   "a": "theater",
+   "s": "Theaters (wide)",
+   "k": "Movie",
+   "g": [
+    "Comedy"
+   ],
+   "r": "Not rated",
+   "date": "2026-11-25",
+   "sum": "Robert De Niro and Ben Stiller return for a fourth Meet the Parents film, joined by Skyler Gisondo and Owen Wilson. Opens Thanksgiving Eve."
+  },
+  {
+   "t": "Violent Night 2",
+   "a": "theater",
+   "s": "Theaters (wide)",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Comedy",
+    "Holiday"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-04",
+   "sum": "David Harbour's brawling Santa is back, now joined by Kristen Bell."
+  },
+  {
+   "t": "How to Rob a Bank",
+   "a": "theater",
+   "s": "Theaters (wide)",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Comedy",
+    "Crime"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-04",
+   "sum": "David Leitch's satirical heist movie about bank robbers who livestream their crimes, with Nicholas Hoult and Zoë Kravitz."
+  },
+  {
+   "t": "Above the Below",
+   "a": "theater",
+   "s": "Theaters (limited)",
+   "k": "Movie",
+   "g": [
+    "Action",
+    "Sci-Fi",
+    "Thriller"
+   ],
+   "r": "Not rated",
+   "date": "2026-12-04",
+   "sum": "Idris Elba leads a sci-fi thriller from Lionsgate."
+  },
+  {
+   "t": "The Maltese Falcon (85th anniversary)",
+   "a": "theater",
+   "s": "Theaters (limited)",
+   "k": "Movie",
+   "g": [
+    "Crime",
+    "Mystery"
+   ],
+   "r": "Not rated",
+   "y": 1941,
+   "date": "2026-12-06",
+   "len": "1h 40m",
+   "sum": "Humphrey Bogart's Sam Spade returns to the big screen for limited anniversary showings."
+  }
+ ],
+ "reviews": {
+  "Godzilla Minus Zero": {
+   "rt": "92%",
+   "n": "53 reviews",
+   "take": "Critics say it goes bigger and more emotional than Minus One. A few found it less focused.",
+   "src": "Forbes RT roundup, Nov 2"
+  },
+  "Paddington in Peru": {
+   "rt": "93%",
+   "n": "193 reviews",
+   "aud": "90%",
+   "take": "A warm, gentle family adventure in a fresh setting. The main knock is a slightly overstuffed plot.",
+   "src": "Rotten Tomatoes"
+  },
+  "Silent Night": {
+   "rt": "59%",
+   "n": "125 reviews",
+   "aud": "50%",
+   "take": "Mixed. The near-wordless action set pieces carry it, but the story is thin and slow in stretches.",
+   "src": "Rotten Tomatoes"
+  },
+  "Being Heumann": {
+   "other": "8/10",
+   "take": "From its TIFF premiere: uplifting and well acted, with Ruth Madeley a standout. Informative without preaching.",
+   "src": "JoBlo (Chris Bumbray)"
+  },
+  "Madame Web": {
+   "rt": "10%",
+   "n": "270 reviews",
+   "aud": "53%",
+   "take": "Panned by critics for a predictable plot and uneven execution. Audiences were kinder.",
+   "src": "Rotten Tomatoes"
+  },
+  "Heart of the Beast": {
+   "rt": "84%",
+   "aud": "94%",
+   "take": "Certified Fresh. Critics call it a stirring tribute to man's best friend.",
+   "src": "Rotten Tomatoes via Collider"
+  },
+  "Other Mommy": {
+   "rt": "19%",
+   "take": "Critics praise Chastain's eerie turn as a smothering parent, but most found the film itself weak.",
+   "src": "Rotten Tomatoes via Collider"
+  },
+  "Resident Evil": {
+   "rt": "96%",
+   "n": "304 reviews",
+   "aud": "90%",
+   "take": "Lots of scares in a tight runtime, with Austin Abrams adding comic relief. A fast, fun take on the games.",
+   "src": "Rotten Tomatoes"
+  },
+  "The Odyssey": {
+   "rt": "94%",
+   "n": "515 reviews",
+   "aud": "96%",
+   "take": "Grand scale and a strong ensemble, with a human emotional core underneath the myth.",
+   "src": "Rotten Tomatoes"
+  },
+  "Monty Python and the Holy Grail": {
+   "rt": "92%",
+   "n": "131 reviews",
+   "aud": "95%",
+   "take": "A comedy landmark that still holds up.",
+   "src": "Rotten Tomatoes"
+  },
+  "Aftersun": {
+   "rt": "96%",
+   "n": "245 reviews",
+   "aud": "81%",
+   "take": "One of the most acclaimed films of 2022.",
+   "src": "Rotten Tomatoes"
+  },
+  "Galaxy Quest": {
+   "rt": "91%",
+   "n": "130 reviews",
+   "aud": "79%",
+   "take": "Beloved by critics and sci-fi fans alike.",
+   "src": "Rotten Tomatoes"
+  },
+  "The Hunger Games (all five films)": {
+   "rt": "84%",
+   "aud": "81%",
+   "take": "Scores shown are for the first film.",
+   "src": "Rotten Tomatoes"
+  },
+  "The Hunger Games films": {
+   "rt": "84%",
+   "aud": "81%",
+   "take": "Scores shown are for the first film.",
+   "src": "Rotten Tomatoes"
+  },
+  "Kung Fu Hustle": {
+   "rt": "90%",
+   "n": "186 reviews",
+   "aud": "89%",
+   "take": "Stephen Chow's cartoonish martial-arts comedy is a critics' and audience favorite.",
+   "src": "Rotten Tomatoes"
+  },
+  "Arthur Christmas": {
+   "rt": "93%",
+   "n": "166 reviews",
+   "aud": "77%",
+   "take": "One of the best-reviewed modern animated holiday films.",
+   "src": "Rotten Tomatoes"
+  },
+  "Ebenezer: A Christmas Carol": {
+   "pending": true,
+   "take": "No reviews yet; they usually arrive a day or two before opening. Early test screenings reportedly scored very high.",
+   "src": "Dark Horizons"
+  },
+  "Heartland": {
+   "pending": true,
+   "take": "No reviews yet. Netflix films often get reviewed on release day."
+  },
+  "12 12 12": {
+   "pending": true,
+   "take": "No reviews yet."
+  },
+  "The Good Daughter": {
+   "pending": true,
+   "take": "No reviews yet."
+  },
+  "Don't Quit": {
+   "pending": true,
+   "take": "No reviews yet. Tubi Originals are rarely reviewed by major critics."
+  }
+ },
+ "info": {
+  "Don't Quit": {
+   "p": [],
+   "prior": 45,
+   "basis": "Tubi Original; these rarely get reviewed, so this leans on your taste"
+  },
+  "Silent Night": {
+   "p": [
+    "John Woo",
+    "Joel Kinnaman"
+   ]
+  },
+  "Love After Lockup": {
+   "p": [],
+   "prior": 50,
+   "basis": "Long-running reality series"
+  },
+  "The Hunger Games (all five films)": {
+   "p": [
+    "Jennifer Lawrence"
+   ]
+  },
+  "The Hunger Games films": {
+   "p": [
+    "Jennifer Lawrence"
+   ]
+  },
+  "Monty Python and the Holy Grail": {
+   "p": [
+    "Monty Python"
+   ]
+  },
+  "Insidious: The Red Door": {
+   "p": [
+    "Patrick Wilson"
+   ],
+   "prior": 50,
+   "basis": "Late horror sequels usually review below the originals"
+  },
+  "Aftersun": {
+   "p": [
+    "Paul Mescal",
+    "Charlotte Wells"
+   ]
+  },
+  "Kung Fu Hustle": {
+   "p": [
+    "Stephen Chow"
+   ]
+  },
+  "Meet the Parents": {
+   "p": [
+    "Robert De Niro",
+    "Ben Stiller"
+   ],
+   "prior": 70,
+   "basis": "A well-liked mainstream comedy"
+  },
+  "Mission: Impossible collection": {
+   "p": [
+    "Tom Cruise"
+   ],
+   "prior": 80,
+   "basis": "Most entries rank among the best-reviewed action films"
+  },
+  "Galaxy Quest": {
+   "p": [
+    "Tim Allen",
+    "Sigourney Weaver"
+   ]
+  },
+  "Ghostbusters & Ghostbusters II": {
+   "p": [
+    "Bill Murray"
+   ],
+   "prior": 82,
+   "basis": "The original is a comedy classic"
+  },
+  "White Christmas": {
+   "p": [
+    "Bing Crosby",
+    "Danny Kaye"
+   ],
+   "prior": 80,
+   "basis": "A holiday classic"
+  },
+  "Jingle All the Way": {
+   "p": [
+    "Arnold Schwarzenegger"
+   ],
+   "prior": 50,
+   "basis": "A cult favorite that critics didn't love"
+  },
+  "Arthur Christmas": {
+   "p": [
+    "Aardman Animations"
+   ]
+  },
+  "Forrest Gump": {
+   "p": [
+    "Tom Hanks",
+    "Robert Zemeckis"
+   ],
+   "prior": 85,
+   "basis": "Best Picture winner"
+  },
+  "Saw X": {
+   "p": [
+    "Tobin Bell"
+   ],
+   "prior": 65,
+   "basis": "Better received than most Saw sequels"
+  },
+  "The Brothers Garcia": {
+   "p": [],
+   "prior": 60,
+   "basis": "Nostalgic family sitcom"
+  },
+  "Kong: Skull Island": {
+   "p": [
+    "Tom Hiddleston",
+    "Brie Larson"
+   ],
+   "prior": 70,
+   "basis": "A well-liked monster movie"
+  },
+  "Twisted Sanctuary": {
+   "p": [],
+   "prior": 45,
+   "basis": "Tubi Original; rarely reviewed"
+  },
+  "Sidelined 3: End Game": {
+   "p": [
+    "Noah Beck",
+    "Siena Agudong"
+   ],
+   "prior": 55,
+   "basis": "Finale of one of Tubi's most-watched franchises"
+  },
+  "Gaskins: The Hitchhiker Killer": {
+   "p": [],
+   "prior": 45,
+   "basis": "Tubi Original; rarely reviewed"
+  },
+  "Heartland": {
+   "p": [
+    "Jessica Chastain",
+    "Shana Feste"
+   ],
+   "prior": 62,
+   "basis": "Chastain is consistently well reviewed; Feste's Country Strong was not"
+  },
+  "Cunk on Cinema": {
+   "p": [
+    "Diane Morgan"
+   ],
+   "prior": 80,
+   "basis": "Earlier Cunk specials were critics' favorites"
+  },
+  "The Empress, Season 3": {
+   "p": [],
+   "prior": 65,
+   "basis": "Returning drama with an established audience"
+  },
+  "Smile + Insidious": {
+   "p": [
+    "James Wan"
+   ],
+   "prior": 70,
+   "basis": "Two popular modern horror hits"
+  },
+  "The Secret Lives of Mormon Wives: Orange County": {
+   "p": [],
+   "prior": 45,
+   "basis": "Reality spinoff"
+  },
+  "Paddington in Peru": {
+   "p": [
+    "Hugh Bonneville"
+   ]
+  },
+  "The Baltimorons": {
+   "p": [
+    "Jay Duplass"
+   ],
+   "prior": 65,
+   "basis": "Indie holiday comedy from Jay Duplass"
+  },
+  "Madame Web": {
+   "p": [
+    "Dakota Johnson"
+   ]
+  },
+  "Crown of Deceit: Inside the Miss Universe Scandal": {
+   "p": [],
+   "prior": 55,
+   "basis": "True-story docuseries"
+  },
+  "The Chosen, Season 6": {
+   "p": [
+    "Jonathan Roumie"
+   ],
+   "prior": 78,
+   "basis": "Earlier seasons scored very high with viewers"
+  },
+  "Frasier (2023), Seasons 1–2": {
+   "p": [
+    "Kelsey Grammer"
+   ],
+   "prior": 58,
+   "basis": "The revival got mixed reviews"
+  },
+  "The Good Daughter": {
+   "p": [
+    "Rose Byrne",
+    "Meghann Fahy",
+    "Karin Slaughter"
+   ],
+   "prior": 68,
+   "basis": "Strong cast and a bestselling source novel"
+  },
+  "12 12 12": {
+   "p": [
+    "Anthony Mackie",
+    "Jamie Dornan"
+   ],
+   "prior": 65,
+   "basis": "Star-led heist series; no reviews yet"
+  },
+  "Being Heumann": {
+   "p": [
+    "Siân Heder",
+    "Ruth Madeley",
+    "Mark Ruffalo"
+   ]
+  },
+  "S.W.A.T. Exiles, new episode": {
+   "p": [
+    "Shemar Moore"
+   ],
+   "prior": 55,
+   "basis": "Procedural with a loyal following"
+  },
+  "Blue Lights, Season 4": {
+   "p": [],
+   "prior": 85,
+   "basis": "BAFTA-winning series"
+  },
+  "PAW Patrol: The Dino Movie": {
+   "p": [],
+   "prior": 55,
+   "basis": "Made for preschoolers"
+  },
+  "Kids' Choice Awards 2026": {
+   "p": [],
+   "prior": 45,
+   "basis": "Live awards show"
+  },
+  "A Proud Family Wizmas": {
+   "p": [],
+   "prior": 60,
+   "basis": "Holiday special from a well-liked series"
+  },
+  "I'm Still Here": {
+   "p": [
+    "Walter Salles",
+    "Fernanda Torres"
+   ],
+   "prior": 90,
+   "basis": "Oscar winner for Best International Feature"
+  },
+  "Splash City": {
+   "p": [
+    "Berner"
+   ],
+   "prior": 50,
+   "basis": "No reviews yet"
+  },
+  "Madden": {
+   "p": [
+    "Nicolas Cage",
+    "David O. Russell"
+   ],
+   "prior": 60,
+   "basis": "Big names; David O. Russell's recent films have been hit and miss"
+  },
+  "Tony": {
+   "p": [
+    "Anthony Bourdain"
+   ],
+   "prior": 65,
+   "basis": "Biopic of a beloved food writer"
+  },
+  "Percy Jackson and the Olympians, Season 3": {
+   "p": [
+    "Rick Riordan"
+   ],
+   "prior": 72,
+   "basis": "Earlier seasons were well liked"
+  },
+  "They Will Kill You": {
+   "p": [
+    "Zazie Beetz"
+   ],
+   "prior": 60,
+   "basis": "Genre mash-up; no reviews collected"
+  },
+  "Outlander: Blood of My Blood, new episode": {
+   "p": [],
+   "prior": 70,
+   "basis": "Prequel to a popular series"
+  },
+  "Yellowjackets, Season 4": {
+   "p": [],
+   "prior": 75,
+   "basis": "Final season of an acclaimed series"
+  },
+  "Alien: Romulus": {
+   "p": [
+    "Fede Álvarez"
+   ],
+   "prior": 76,
+   "basis": "A well-received return to the franchise's horror roots"
+  },
+  "Mickey 17": {
+   "p": [
+    "Robert Pattinson",
+    "Bong Joon Ho"
+   ],
+   "prior": 72,
+   "basis": "Bong Joon Ho's follow-up to Parasite"
+  },
+  "Dig": {
+   "p": [
+    "Amy Poehler",
+    "Jason Mantzoukas"
+   ],
+   "prior": 70,
+   "basis": "Amy Poehler-led comedy"
+  },
+  "The Trials of Karen Read": {
+   "p": [],
+   "prior": 62,
+   "basis": "High-profile true-crime docuseries"
+  },
+  "New Wave": {
+   "p": [],
+   "prior": 65,
+   "basis": "Music docuseries"
+  },
+  "Blade Runner 2099": {
+   "p": [
+    "Michelle Yeoh"
+   ],
+   "prior": 68,
+   "basis": "Big franchise, strong lead; no reviews yet"
+  },
+  "The Mosquito Bowl": {
+   "p": [
+    "Peter Berg"
+   ],
+   "prior": 62,
+   "basis": "Based on Buzz Bissinger's acclaimed book"
+  },
+  "Way of the Warrior Kid": {
+   "p": [
+    "Jocko Willink"
+   ],
+   "prior": 55,
+   "basis": "Family film from a popular kids' book"
+  },
+  "The Hunting Wives, Season 2": {
+   "p": [
+    "Brittany Snow",
+    "Malin Akerman"
+   ],
+   "prior": 58,
+   "basis": "Season 1 was a streaming hit with mixed reviews"
+  },
+  "M3GAN 2.0": {
+   "p": [
+    "Allison Williams"
+   ],
+   "prior": 55,
+   "basis": "Sequel reviewed below the original"
+  },
+  "The Super Mario Galaxy Movie": {
+   "p": [
+    "Chris Pratt"
+   ],
+   "prior": 65,
+   "basis": "Sequel to a crowd-pleasing hit"
+  },
+  "Trinity": {
+   "p": [],
+   "prior": 60,
+   "basis": "New Netflix thriller; no reviews yet"
+  },
+  "In a Holidaze": {
+   "p": [],
+   "prior": 55,
+   "basis": "Netflix holiday rom-com"
+  },
+  "The Man With the Bag": {
+   "p": [
+    "Arnold Schwarzenegger"
+   ],
+   "prior": 55,
+   "basis": "Star-driven holiday comedy"
+  },
+  "Pride and Prejudice": {
+   "p": [
+    "Emma Corrin",
+    "Jack Lowden"
+   ],
+   "prior": 72,
+   "basis": "Austen adaptations with strong casts usually land well"
+  },
+  "14TH": {
+   "p": [
+    "Ava DuVernay"
+   ],
+   "prior": 75,
+   "basis": "From the director of the acclaimed 13TH"
+  },
+  "Ghostsmas": {
+   "p": [],
+   "prior": 72,
+   "basis": "Ghosts is one of CBS's best-reviewed comedies"
+  },
+  "The Murder of JonBenét Ramsey": {
+   "p": [
+    "Melissa McCarthy",
+    "Clive Owen"
+   ],
+   "prior": 65,
+   "basis": "Strong cast; no reviews yet"
+  },
+  "Bad Day": {
+   "p": [
+    "Cameron Diaz"
+   ],
+   "prior": 58,
+   "basis": "Star-led comedy; no reviews yet"
+  },
+  "In Waves": {
+   "p": [
+    "Will Sharpe",
+    "Stephanie Hsu"
+   ],
+   "prior": 65,
+   "basis": "Original animated drama"
+  },
+  "Tantara": {
+   "p": [
+    "Song Hye-kyo",
+    "Gong Yoo"
+   ],
+   "prior": 72,
+   "basis": "Two of Korea's biggest stars"
+  },
+  "Ebenezer: A Christmas Carol": {
+   "p": [
+    "Johnny Depp",
+    "Ti West",
+    "Ian McKellen"
+   ],
+   "prior": 70,
+   "basis": "Ti West's X and Pearl were critical hits, and test screenings scored high"
+  },
+  "I Play Rocky": {
+   "p": [
+    "Matt Dillon",
+    "AnnaSophia Robb"
+   ],
+   "prior": 65,
+   "basis": "Inside-Hollywood biopic; no reviews yet"
+  },
+  "The Angry Birds Movie (10th anniversary)": {
+   "p": [],
+   "prior": 50,
+   "basis": "A kids' favorite that critics were lukewarm on"
+  },
+  "Godzilla Minus Zero": {
+   "p": [
+    "Takashi Yamazaki"
+   ]
+  },
+  "The Hunger Games: Sunrise on the Reaping": {
+   "p": [
+    "Elle Fanning",
+    "Ralph Fiennes",
+    "Francis Lawrence"
+   ],
+   "prior": 75,
+   "basis": "Francis Lawrence directed the best-reviewed films in the series"
+  },
+  "A Beautiful Mind (25th anniversary)": {
+   "p": [
+    "Russell Crowe",
+    "Ron Howard"
+   ],
+   "prior": 80,
+   "basis": "Best Picture winner"
+  },
+  "Hexed": {
+   "p": [
+    "Hailee Steinfeld"
+   ],
+   "prior": 70,
+   "basis": "Disney animation"
+  },
+  "Focker-in-Law": {
+   "p": [
+    "Robert De Niro",
+    "Ben Stiller"
+   ],
+   "prior": 55,
+   "basis": "Later sequels in the series reviewed poorly"
+  },
+  "Violent Night 2": {
+   "p": [
+    "David Harbour",
+    "Kristen Bell"
+   ],
+   "prior": 65,
+   "basis": "The first film was a fun surprise"
+  },
+  "How to Rob a Bank": {
+   "p": [
+    "Nicholas Hoult",
+    "Zoë Kravitz",
+    "David Leitch"
+   ],
+   "prior": 65,
+   "basis": "From the director of Bullet Train and The Fall Guy"
+  },
+  "Above the Below": {
+   "p": [
+    "Idris Elba"
+   ],
+   "prior": 55,
+   "basis": "Limited release; no reviews yet"
+  },
+  "The Maltese Falcon (85th anniversary)": {
+   "p": [
+    "Humphrey Bogart"
+   ],
+   "prior": 95,
+   "basis": "A film-noir classic"
+  },
+  "Heart of the Beast": {
+   "p": [
+    "Brad Pitt",
+    "David Ayer"
+   ]
+  },
+  "Other Mommy": {
+   "p": [
+    "Jessica Chastain",
+    "Rob Savage"
+   ]
+  },
+  "Crawlers": {
+   "p": [
+    "Matilda Lutz"
+   ],
+   "prior": 50,
+   "basis": "Indie creature feature; no reviews yet"
+  },
+  "Resident Evil": {
+   "p": [
+    "Zach Cregger"
+   ]
+  },
+  "Pan's Labyrinth (4K restoration)": {
+   "p": [
+    "Guillermo del Toro"
+   ],
+   "prior": 95,
+   "basis": "A modern classic"
+  },
+  "The Odyssey": {
+   "p": [
+    "Christopher Nolan",
+    "Matt Damon"
+   ]
+  }
+ }
+}
