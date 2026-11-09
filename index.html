@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="New movies and shows this week and the month ahead, sorted by what they cost to watch: free, included with your streaming, rent or buy, or in theaters.">
-<meta name="theme-color" content="#eef1f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1220" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#3d3fd6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a2a8a" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.webmanifest">
 <script src="config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
@@ -29,39 +29,48 @@ img{max-width:100%}
 <style>
 /* Layout: a weekend TV guide. Marquee header, sticky filter rail, cards grouped by how you get to watch. Free leads. */
 :root{
-  --bg:#eef1f6; --surface:#ffffff; --ink:#141a2b; --muted:#5a6378; --line:#d6dbe6;
-  --free:#0f7a5c; --free-soft:#dcf2ea;
-  --paid:#9a5b00; --paid-soft:#fbecd2;
-  --theater:#b8323a; --theater-soft:#f9dfe0;
-  --accent:#2b3fd6; --accent-soft:#e1e5fb;
+  --bg:#f3f2fb; --surface:#ffffff; --ink:#15173a; --muted:#5d5f7d; --line:#dedcf0;
+  --free:#6a2fd0; --free-soft:#efe7fe;
+  --paid:#946100; --paid-soft:#fff0c7;
+  --theater:#d2433a; --theater-soft:#ffe3de;
+  --accent:#2b3fd6; --accent-soft:#e3e6fc;
+  --gold:#ffd65c;
+  --band:linear-gradient(120deg,#2b3fd6 0%,#7a3fd6 52%,#ff6a5a 100%);
   --display:"Anybody", "Arial Narrow", system-ui, sans-serif;
   --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3ba; --line:#2a3148;
-  --free:#4fd1a5; --free-soft:#123a30; --paid:#f0b45a; --paid-soft:#3a2a10;
-  --theater:#ff7b82; --theater-soft:#3e1a1e; --accent:#8b98ff; --accent-soft:#232a52; color-scheme:dark}}
+  --bg:#0f1027; --surface:#191a3a; --ink:#ecebfa; --muted:#a3a3c4; --line:#2c2d55;
+  --free:#b892ff; --free-soft:#2d1f52; --paid:#ffd65c; --paid-soft:#3a2f10;
+  --theater:#ff8a7a; --theater-soft:#43201c; --accent:#8f9cff; --accent-soft:#232857;
+  --band:linear-gradient(120deg,#1e2c9e 0%,#55279e 52%,#b8443a 100%); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3ba; --line:#2a3148;
-  --free:#4fd1a5; --free-soft:#123a30; --paid:#f0b45a; --paid-soft:#3a2a10;
-  --theater:#ff7b82; --theater-soft:#3e1a1e; --accent:#8b98ff; --accent-soft:#232a52; color-scheme:dark}
+  --bg:#0f1027; --surface:#191a3a; --ink:#ecebfa; --muted:#a3a3c4; --line:#2c2d55;
+  --free:#b892ff; --free-soft:#2d1f52; --paid:#ffd65c; --paid-soft:#3a2f10;
+  --theater:#ff8a7a; --theater-soft:#43201c; --accent:#8f9cff; --accent-soft:#232857;
+  --band:linear-gradient(120deg,#1e2c9e 0%,#55279e 52%,#b8443a 100%); color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#3d3fd6}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:var(--accent)}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-header.top{padding-block:28px 18px}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.band{background:var(--band);color:#fff;position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;inset:-60% -10% auto auto;width:140%;aspect-ratio:1;max-width:none;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,255,255,.09) 0deg 10deg,transparent 10deg 20deg);pointer-events:none}
+header.top{padding-block:26px 22px;position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:18px;align-items:start}
+header.top > *:not(.logo){grid-column:2}
+.logo{grid-row:1 / span 4;width:72px;height:72px;border-radius:18px;box-shadow:0 8px 24px rgba(20,10,60,.35);margin-top:4px}
+@media (max-width:560px){header.top{grid-template-columns:1fr} header.top > *:not(.logo){grid-column:1} .logo{grid-row:auto;width:52px;height:52px;border-radius:13px;margin-bottom:8px}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8)}
 h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(44px,9vw,84px);line-height:.9;margin:6px 0 10px;letter-spacing:-.01em;text-wrap:balance}
-h1 span{color:var(--free)}
-.lede{max-width:62ch;color:var(--muted);margin:0}
+h1 span{color:var(--gold)}
+.lede{max-width:62ch;color:rgba(255,255,255,.9);margin:0}
 .dates{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.day{font-family:var(--mono);font-size:13px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:6px 10px}
+.day{font-family:var(--mono);font-size:13px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:6px;padding:6px 10px}
 .day b{font-family:var(--body)}
 
 .rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px}
@@ -69,14 +78,14 @@ h1 span{color:var(--free)}
 .access button{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0}
 .access button .n{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:22px;line-height:1}
 .access button .l{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.access button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.access button[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--accent-soft)}
 .access button[data-a="inc"] .n{color:var(--free)} .access button[data-a="rent"] .n{color:var(--paid)} .access button[data-a="theater"] .n{color:var(--theater)}
 .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .controls input,.controls select{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 10px;min-width:0}
 .controls input{flex:1 1 180px}
 .chips{display:flex;gap:6px;overflow-x:auto;padding-top:8px;scrollbar-width:thin}
 .chip{flex:none;border:1px solid var(--line);background:transparent;border-radius:999px;padding:4px 11px;font-size:13px;cursor:pointer;color:var(--muted)}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
 
 main{padding-block:18px 40px;display:flex;flex-direction:column;gap:30px}
 section h2{font-family:var(--display);font-stretch:70%;font-weight:800;font-size:28px;margin:0 0 2px;display:flex;align-items:center;gap:10px}
@@ -137,8 +146,8 @@ section .sub{color:var(--muted);margin:0 0 12px;font-size:14px;max-width:70ch}
 .rems .linkbtn{grid-area:x}
 .small{font-size:13px;margin:0}
 .when .today{color:var(--free);font-weight:600}
-.day.is-today{border-color:var(--ink)}
-.day.ahead-chip{color:var(--muted);border-style:dashed}
+.day.is-today{background:var(--gold);border-color:var(--gold);color:#15173a}
+.day.ahead-chip{color:rgba(255,255,255,.85);border-style:dashed;background:transparent}
 .fb.bell[aria-pressed="true"]{background:var(--paid-soft);color:var(--paid);border-color:var(--paid)}
 .poster.has-img{padding:0;background:var(--line)}
 .poster.has-img::before,.poster.has-img::after{display:none}
@@ -149,6 +158,11 @@ section .sub{color:var(--muted);margin:0 0 12px;font-size:14px;max-width:70ch}
 .acct{display:flex;flex-direction:column;gap:6px}
 .acct-row{display:flex;gap:6px;flex-wrap:wrap}
 .acct-row input{flex:1 1 200px;min-width:0;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:7px 10px}
+.tag.fr{font-weight:600}
+.fr-new{background:var(--free-soft);color:var(--free)}
+.fr-season{background:var(--accent-soft);color:var(--accent)}
+.fr-th{background:var(--theater-soft);color:var(--theater)}
+.fr-old{background:transparent;border:1px dashed var(--line);color:var(--muted);font-weight:500!important}
 .links{margin-top:auto;display:flex;flex-wrap:wrap;gap:4px 14px}
 .card.free{border-top:4px solid var(--free)} .card.sub{border-top:4px solid var(--accent)} .card.rent{border-top:4px solid var(--paid)} .card.theater{border-top:4px solid var(--theater)}
 .sub .tag.where{background:var(--accent-soft);color:var(--accent)} .rent .tag.where{background:var(--paid-soft);color:var(--paid)}
@@ -169,7 +183,7 @@ section .sub{color:var(--muted);margin:0 0 12px;font-size:14px;max-width:70ch}
 .card .go:hover{text-decoration:underline}
 .save{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;font-size:16px;line-height:1;color:var(--muted)}
 .save[aria-pressed="true"]{color:var(--theater);border-color:var(--theater)}
-.pick{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--free)}
+.pick{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#15173a;background:var(--gold);border-radius:4px;padding:1px 6px}
 
 .guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
 .svc{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface)}
@@ -184,12 +198,13 @@ footer ul{margin:6px 0 0;padding-left:18px}
 
 </head>
 <body>
-<header class="wrap top">
+<div class="band"><header class="wrap top">
+  <img class="logo" src="icons/icon-192.png" alt="" width="72" height="72">
   <div class="eyebrow" id="eyebrow">United States</div>
   <h1>What's on this weekend. <span>No extra cost first.</span></h1>
   <p class="lede">New movies and shows for this week and the month ahead, sorted by what it costs to watch: included with streaming you have (or need no subscription at all), rent or buy, or a movie ticket. Tap the bell on anything coming soon and you'll get a reminder the day it arrives.</p>
   <div class="dates" id="dates"></div>
-</header>
+</header></div>
 
 <div class="rail">
   <div class="wrap">
@@ -205,6 +220,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
       <select id="rating" aria-label="Rating"><option value="">Any rating</option><option value="family">Family (G, PG)</option><option value="teen">Teen (PG-13, TV-14)</option><option value="mature">Mature (R, TV-MA)</option></select>
       <select id="svc" aria-label="Service"><option value="">All services</option></select>
       <label class="toggle"><input type="checkbox" id="nosub"> No subscription needed</label>
+      <label class="toggle"><input type="checkbox" id="oldies"> Include older titles</label>
       <select id="sort" aria-label="Sort"><option value="match">Best match for me</option><option value="pick">Top picks first</option><option value="reviews">Best reviewed</option><option value="date">By date</option></select>
     </div>
     <div class="chips" id="genres" role="group" aria-label="Genre"></div>
@@ -388,7 +404,7 @@ function matchBadge(m){const hue=m.v>=75?"free":m.v>=55?"accent":"muted";
 // ===== Rendering =====
 const cat = d => (d.a==="free"||d.a==="paid") ? "inc" : d.a;
 const cls = d => d.a==="paid" ? "sub" : d.a;
-const state = {access:"inc",q:"",kind:"",rating:"",svc:"",genre:"",mine:false,sort:"match",nosub:false};
+const state = {access:"inc",q:"",kind:"",rating:"",svc:"",genre:"",mine:false,sort:"match",nosub:false,oldies:false};
 let SIG = {};
 const LIVE = DATA.filter(d=>{const diff=(pd(d.date)-TODAY)/DAY; return diff>=-31 && diff<=42;});
 
@@ -402,6 +418,7 @@ const svcEl = document.getElementById("svc");
 function matches(d,ignoreAccess){
   if(!ignoreAccess && state.access!=="all" && cat(d)!==state.access) return false;
   if(state.nosub && cat(d)==="inc" && d.a!=="free") return false;
+  if(!state.oldies && d.f==="library") return false;
   if(state.mine && !saved.has(d.t) && !reminders[slug(d.t)]) return false;
   if(state.kind && d.k!==state.kind) return false;
   if(state.svc && d.s.replace(/ \(.*\)/,"")!==state.svc) return false;
@@ -447,6 +464,13 @@ function review(d){
     ${r&&r.take?`<div class="tk">${esc(r.take)}${r.src?` <span class="src">${esc(r.src)}</span>`:""}</div>`:""}${ext}</div>`;
 }
 function rtNum(d){const r=REVIEWS[d.t];if(r&&r.rt) return parseInt(r.rt); if(r&&r.other) return 80; const e=enr(d),er=e&&e.ratings; if(er&&er.rt) return parseInt(er.rt); if(er&&er.imdb) return Math.round(parseFloat(er.imdb)*10); return -1;}
+function freshTag(d){
+  const f=d.f||"library";
+  if(f==="new") return `<span class="tag fr fr-new">${d.a==="theater"?"New release":d.k==="Series"?"New show":d.k==="Special"?"New special":"Brand new"}</span>`;
+  if(f==="season") return `<span class="tag fr fr-season">${/new episode/i.test(d.t)?"New episodes":"New season"}</span>`;
+  if(f==="theatrical") return `<span class="tag fr fr-th">From theaters</span>`;
+  return `<span class="tag fr fr-old">${d.a==="theater"?"Re-release":"Older title"}${d.y?" · "+esc(d.y):""}</span>`;
+}
 function card(d){
   const look = `https://www.justwatch.com/us/search?q=${encodeURIComponent(d.t.replace(/\s*\(.*?\)/g,"").replace(/, new episode$/,""))}`;
   const href = d.a==="theater" ? `https://www.google.com/search?q=${encodeURIComponent(d.t+" showtimes near me")}` : d.a==="rent" ? look : LINK[d.s];
@@ -460,7 +484,7 @@ function card(d){
     <div class="when"><span class="${pd(d.date)-TODAY===0?"today":""}">${esc(label(d))}</span>${d.pick?'<span class="pick">Top pick</span>':""}</div>
     <h3>${esc(d.t)}</h3>
     ${matchBadge(match(d,SIG))}
-    <div class="meta"><span class="tag where">${esc(d.s)}</span>${d.a==="free"?'<span class="tag nosub">No subscription</span>':""}<span class="tag">${d.k}</span><span class="tag rate">${esc(d.r)}</span>${d.y?`<span class="tag">${d.y}</span>`:""}${d.len?`<span class="tag">${d.len}</span>`:""}${d.g.map(g=>`<span class="tag">${g}</span>`).join("")}</div>
+    <div class="meta">${freshTag(d)}<span class="tag where">${esc(d.s)}</span>${d.a==="free"?'<span class="tag nosub">No subscription</span>':""}<span class="tag">${d.k}</span><span class="tag rate">${esc(d.r)}</span>${d.y?`<span class="tag">${d.y}</span>`:""}${d.len?`<span class="tag">${d.len}</span>`:""}${d.g.map(g=>`<span class="tag">${g}</span>`).join("")}</div>
     <p>${esc(d.sum)}</p>
     ${review(d)}
     ${whereToWatch(d)}
@@ -525,7 +549,7 @@ function render(){
   html += `<h2 class="period">This week · ${short(WEEK0)}–${short(end0)}</h2>`;
   const now = shown.filter(wk0);
   if(show("inc")){
-    html += block("No subscription needed","Free, ad-supported services. No account or credit card required.","free",now.filter(d=>d.a==="free"),"No new free premieres this week match these filters. See the earlier additions below.");
+    html += block("No subscription needed","Free, ad-supported services. No account or credit card required.","free",now.filter(d=>d.a==="free"),"No brand-new free premieres this week match these filters. Turn on Include older titles to see older movies new to free services.");
     if(!state.nosub) html += block("Included with your subscriptions","No extra cost if you already subscribe. Covers Netflix, Hulu, Disney+, HBO Max, Prime Video, Apple TV, Peacock, Paramount+, Starz, BritBox and MGM+.","accent",now.filter(d=>d.a==="paid"));
   }
   if(show("rent")) html += block("Rent or buy","Costs extra on top of any subscription. Recent theatrical releases usually start around $20 to rent or $25 to buy. Available through Apple TV, Prime Video, Fandango at Home, YouTube and similar stores.","paid",now.filter(d=>d.a==="rent"));
@@ -542,7 +566,9 @@ function render(){
     html += `<section class="ahead"><h2 class="period">${w===1?"Next week":"Week of "+short(s)} · ${short(s)}–${short(e)}</h2><p class="sub">Tap 🔔 to get a reminder the day it arrives.</p><div class="grid">${sortItems(items).map(card).join("")}</div></section>`;
   }
   if(show("inc")){
-    html += block("Added earlier this month, no subscription","Arrived on free services in the past few weeks and still streaming.","free",shown.filter(d=>d.a==="free"&&weekIdx(d)<0));
+    if(state.oldies) html += block("Added earlier this month, no subscription","Older movies and shows that arrived on free services in the past few weeks.","free",shown.filter(d=>d.a==="free"&&weekIdx(d)<0));
+    else { const nOld=LIVE.filter(d=>d.f==="library"&&d.a==="free").length;
+      if(nOld) html += `<div class="notice">Free services also added <b>${nOld} older movies and shows</b> this month, like classics and past hits. <button class="linkbtn" id="showold">Show older titles</button></div>`; }
     html += `<section><h2><span class="dot" style="background:var(--free)"></span>Where to stream free</h2><p class="sub">All legal, no subscription. Most run ads.</p><div class="guide">
     <div class="svc"><b>Tubi</b><span>Biggest free movie library; adds originals most weeks. No account needed.</span></div>
     <div class="svc"><b>Pluto TV</b><span>Live channels plus on-demand. Big monthly drops, strong on '90s and 2000s hits.</span></div>
@@ -569,6 +595,8 @@ gEl.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;
 document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();render();});
 for(const id of ["kind","rating","svc","sort"]) document.getElementById(id).addEventListener("change",e=>{state[id]=e.target.value;render();});
 document.getElementById("nosub").addEventListener("change",e=>{state.nosub=e.target.checked;render();});
+document.getElementById("oldies").addEventListener("change",e=>{state.oldies=e.target.checked;store.set("ww-oldies",state.oldies);render();});
+state.oldies=!!store.get("ww-oldies",false); document.getElementById("oldies").checked=state.oldies;
 document.getElementById("main").addEventListener("submit",e=>{
   if(e.target.id!=="signin") return; e.preventDefault();
   const v=(document.getElementById("email").value||"").trim(); if(v) signIn(v);
@@ -581,6 +609,7 @@ document.getElementById("main").addEventListener("click",e=>{
   const u=e.target.closest("[data-unrem]"); if(u){delete reminders[u.dataset.unrem]; persist(); render(); return;}
   const f=e.target.closest(".fb[data-fb]"); if(f){const t=f.dataset.t,v=+f.dataset.fb; if(taste.fb[t]===v) delete taste.fb[t]; else taste.fb[t]=v; persist(); render(); return;}
   const m=e.target.closest(".mood"); if(m){const g=m.dataset.mood,i=taste.moods.indexOf(g); i>=0?taste.moods.splice(i,1):taste.moods.push(g); persist(); render(); return;}
+  if(e.target.id==="showold"){ state.oldies=true; store.set("ww-oldies",true); document.getElementById("oldies").checked=true; render(); return; }
   if(e.target.id==="reset"){taste={fb:{},moods:[]}; persist(); render(); return;}
   const b=e.target.closest(".save");if(!b)return;const t=b.dataset.save;saved.has(t)?saved.delete(t):saved.add(t);persist();render();});
 const lastA = store.get("ww-access",null);

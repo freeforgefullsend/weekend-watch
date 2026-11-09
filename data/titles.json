@@ -28,7 +28,8 @@
    "r": "Not rated",
    "date": "2026-11-13",
    "pick": true,
-   "sum": "A new Tubi Original boxing thriller, and the free service's biggest premiere of the weekend. Watch on any device with no account required."
+   "sum": "A new Tubi Original boxing thriller, and the free service's biggest premiere of the weekend. Watch on any device with no account required.",
+   "f": "new"
   },
   {
    "t": "Silent Night",
@@ -43,7 +44,8 @@
    "y": 2023,
    "date": "2026-11-15",
    "pick": true,
-   "sum": "John Woo's nearly wordless revenge thriller. A father loses his voice and his son to gang violence on Christmas Eve, then spends a year training to settle the score."
+   "sum": "John Woo's nearly wordless revenge thriller. A father loses his voice and his son to gang violence on Christmas Eve, then spends a year training to settle the score.",
+   "f": "library"
   },
   {
    "t": "Love After Lockup",
@@ -55,7 +57,9 @@
    ],
    "r": "Not rated",
    "date": "2026-11-12",
-   "sum": "The long-running reality series following couples who met while one partner was incarcerated, as they try to make it work on the outside."
+   "sum": "The long-running reality series following couples who met while one partner was incarcerated, as they try to make it work on the outside.",
+   "f": "library",
+   "y": 2018
   },
   {
    "t": "The Hunger Games (all five films)",
@@ -69,7 +73,9 @@
    "r": "PG-13",
    "date": "2026-11-01",
    "pick": true,
-   "sum": "The full series is streaming free with ads. A good catch-up before the prequel Sunrise on the Reaping hits theaters Nov 20. (Peacock also adds them Nov 14 for subscribers.)"
+   "sum": "The full series is streaming free with ads. A good catch-up before the prequel Sunrise on the Reaping hits theaters Nov 20. (Peacock also adds them Nov 14 for subscribers.)",
+   "f": "library",
+   "y": "2012–23"
   },
   {
    "t": "Monty Python and the Holy Grail",
@@ -82,7 +88,8 @@
    "r": "PG",
    "y": 1975,
    "date": "2026-11-05",
-   "sum": "King Arthur and his knights hunt for the Grail on a budget so small they use coconuts for horses. Still one of the most quoted comedies ever made."
+   "sum": "King Arthur and his knights hunt for the Grail on a budget so small they use coconuts for horses. Still one of the most quoted comedies ever made.",
+   "f": "library"
   },
   {
    "t": "Insidious: The Red Door",
@@ -95,7 +102,8 @@
    "r": "PG-13",
    "y": 2023,
    "date": "2026-11-04",
-   "sum": "Patrick Wilson directs and stars as the Lambert family is pulled back into the spirit realm ten years after the first films."
+   "sum": "Patrick Wilson directs and stars as the Lambert family is pulled back into the spirit realm ten years after the first films.",
+   "f": "library"
   },
   {
    "t": "Aftersun",
@@ -108,7 +116,8 @@
    "r": "R",
    "y": 2022,
    "date": "2026-11-01",
-   "sum": "A woman revisits a holiday she took with her young father in the '90s. Quiet, devastating, and one of the best-reviewed films of its year. Also on Pluto TV."
+   "sum": "A woman revisits a holiday she took with her young father in the '90s. Quiet, devastating, and one of the best-reviewed films of its year. Also on Pluto TV.",
+   "f": "library"
   },
   {
    "t": "Kung Fu Hustle",
@@ -122,7 +131,8 @@
    "r": "R",
    "y": 2004,
    "date": "2026-11-01",
-   "sum": "Stephen Chow's cartoon-style martial arts comedy about a wannabe gangster and a run-down tenement full of hidden kung fu masters."
+   "sum": "Stephen Chow's cartoon-style martial arts comedy about a wannabe gangster and a run-down tenement full of hidden kung fu masters.",
+   "f": "library"
   },
   {
    "t": "Meet the Parents",
@@ -135,7 +145,8 @@
    "r": "PG-13",
    "y": 2000,
    "date": "2026-11-01",
-   "sum": "Ben Stiller meets Robert De Niro's suspicious ex-CIA father-in-law. Timely: the fourth film opens in theaters Nov 25."
+   "sum": "Ben Stiller meets Robert De Niro's suspicious ex-CIA father-in-law. Timely: the fourth film opens in theaters Nov 25.",
+   "f": "library"
   },
   {
    "t": "Mission: Impossible collection",
@@ -147,7 +158,9 @@
    ],
    "r": "PG-13",
    "date": "2026-11-01",
-   "sum": "Pluto has added a run of the Tom Cruise spy series, from the 1996 original through Dead Reckoning. Free, no sign-up."
+   "sum": "Pluto has added a run of the Tom Cruise spy series, from the 1996 original through Dead Reckoning. Free, no sign-up.",
+   "f": "library",
+   "y": "1996–2023"
   },
   {
    "t": "Galaxy Quest",
@@ -161,7 +174,8 @@
    "r": "PG",
    "y": 1999,
    "date": "2026-11-01",
-   "sum": "The washed-up cast of a cancelled space TV show gets recruited by real aliens who think the show was a documentary."
+   "sum": "The washed-up cast of a cancelled space TV show gets recruited by real aliens who think the show was a documentary.",
+   "f": "library"
   },
   {
    "t": "Ghostbusters & Ghostbusters II",
@@ -174,7 +188,9 @@
    ],
    "r": "PG",
    "date": "2026-11-01",
-   "sum": "The original paranormal exterminators and their slime-filled sequel. Easy family movie night."
+   "sum": "The original paranormal exterminators and their slime-filled sequel. Easy family movie night.",
+   "f": "library",
+   "y": 1984
   },
   {
    "t": "White Christmas",
@@ -188,7 +204,8 @@
    "r": "Not rated",
    "y": 1954,
    "date": "2026-11-01",
-   "sum": "Bing Crosby and Danny Kaye stage a show to save their old general's Vermont inn. Leads Pluto's holiday lineup."
+   "sum": "Bing Crosby and Danny Kaye stage a show to save their old general's Vermont inn. Leads Pluto's holiday lineup.",
+   "f": "library"
   },
   {
    "t": "Jingle All the Way",
@@ -203,7 +220,8 @@
    "r": "PG",
    "y": 1996,
    "date": "2026-11-01",
-   "sum": "Arnold Schwarzenegger battles every other parent in town for the year's must-have toy on Christmas Eve."
+   "sum": "Arnold Schwarzenegger battles every other parent in town for the year's must-have toy on Christmas Eve.",
+   "f": "library"
   },
   {
    "t": "Arthur Christmas",
@@ -218,7 +236,8 @@
    "r": "PG",
    "y": 2011,
    "date": "2026-11-01",
-   "sum": "Santa's clumsy younger son races to deliver one forgotten present before sunrise. A modern animated holiday favorite."
+   "sum": "Santa's clumsy younger son races to deliver one forgotten present before sunrise. A modern animated holiday favorite.",
+   "f": "library"
   },
   {
    "t": "Forrest Gump",
@@ -231,7 +250,8 @@
    "r": "PG-13",
    "y": 1994,
    "date": "2026-11-01",
-   "sum": "Tom Hanks drifts through three decades of American history. Best Picture winner, free with ads."
+   "sum": "Tom Hanks drifts through three decades of American history. Best Picture winner, free with ads.",
+   "f": "library"
   },
   {
    "t": "Saw X",
@@ -244,7 +264,8 @@
    "r": "R",
    "y": 2023,
    "date": "2026-11-19",
-   "sum": "Jigsaw travels to Mexico for an experimental cancer cure and turns his traps on the scammers who sold it to him."
+   "sum": "Jigsaw travels to Mexico for an experimental cancer cure and turns his traps on the scammers who sold it to him.",
+   "f": "library"
   },
   {
    "t": "The Brothers Garcia",
@@ -257,7 +278,9 @@
    ],
    "r": "Not rated",
    "date": "2026-11-19",
-   "sum": "The early-2000s Nickelodeon sitcom about a Mexican-American family in San Antonio arrives with its movie, Mysteries of the Maya, and the revival The Garcias."
+   "sum": "The early-2000s Nickelodeon sitcom about a Mexican-American family in San Antonio arrives with its movie, Mysteries of the Maya, and the revival The Garcias.",
+   "f": "library",
+   "y": 2000
   },
   {
    "t": "Kong: Skull Island",
@@ -271,7 +294,8 @@
    "r": "PG-13",
    "y": 2017,
    "date": "2026-11-20",
-   "sum": "A 1973 expedition to an uncharted island meets the giant ape who rules it."
+   "sum": "A 1973 expedition to an uncharted island meets the giant ape who rules it.",
+   "f": "library"
   },
   {
    "t": "Twisted Sanctuary",
@@ -284,7 +308,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-24",
-   "sum": "Tubi Original. A quiet suburban woman hides dark secrets, and the handymen she invites into her home keep disappearing."
+   "sum": "Tubi Original. A quiet suburban woman hides dark secrets, and the handymen she invites into her home keep disappearing.",
+   "f": "new"
   },
   {
    "t": "Sidelined 3: End Game",
@@ -298,7 +323,8 @@
    "r": "Not rated",
    "date": "2026-11-26",
    "pick": true,
-   "sum": "The final chapter of Tubi's hit teen romance franchise starring Noah Beck and Siena Agudong."
+   "sum": "The final chapter of Tubi's hit teen romance franchise starring Noah Beck and Siena Agudong.",
+   "f": "new"
   },
   {
    "t": "Gaskins: The Hitchhiker Killer",
@@ -311,7 +337,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-27",
-   "sum": "Tubi Original true-crime thriller about South Carolina serial killer Pee Wee Gaskins."
+   "sum": "Tubi Original true-crime thriller about South Carolina serial killer Pee Wee Gaskins.",
+   "f": "new"
   },
   {
    "t": "Heartland",
@@ -326,7 +353,8 @@
    "r": "Not rated",
    "date": "2026-11-13",
    "pick": true,
-   "sum": "Jessica Chastain plays a semi-retired country star who returns to Nashville when her niece, a rising singer, disappears. Directed by Shana Feste, with Garrett Hedlund, Ross Lynch and Jennifer Nettles."
+   "sum": "Jessica Chastain plays a semi-retired country star who returns to Nashville when her niece, a rising singer, disappears. Directed by Shana Feste, with Garrett Hedlund, Ross Lynch and Jennifer Nettles.",
+   "f": "new"
   },
   {
    "t": "Cunk on Cinema",
@@ -338,7 +366,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-15",
-   "sum": "Philomena Cunk, the cheerfully clueless documentary host, takes on the history of film."
+   "sum": "Philomena Cunk, the cheerfully clueless documentary host, takes on the history of film.",
+   "f": "new"
   },
   {
    "t": "The Empress, Season 3",
@@ -351,7 +380,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-12",
-   "sum": "The German period drama about Empress Elisabeth of Austria returns for a third season."
+   "sum": "The German period drama about Empress Elisabeth of Austria returns for a third season.",
+   "f": "season"
   },
   {
    "t": "Smile + Insidious",
@@ -363,7 +393,9 @@
    ],
    "r": "R / PG-13",
    "date": "2026-11-15",
-   "sum": "Two modern horror hits land on Netflix: Smile (R) and the original Insidious (PG-13)."
+   "sum": "Two modern horror hits land on Netflix: Smile (R) and the original Insidious (PG-13).",
+   "f": "library",
+   "y": "2010–22"
   },
   {
    "t": "The Secret Lives of Mormon Wives: Orange County",
@@ -375,7 +407,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-12",
-   "sum": "The MomTok reality franchise heads to Southern California with a new cast of influencer moms."
+   "sum": "The MomTok reality franchise heads to Southern California with a new cast of influencer moms.",
+   "f": "new"
   },
   {
    "t": "Paddington in Peru",
@@ -391,7 +424,8 @@
    "y": 2025,
    "date": "2026-11-15",
    "pick": true,
-   "sum": "Paddington and the Browns travel to Peru to find his Aunt Lucy, who has gone missing from her retirement home. The safest pick for kids this weekend."
+   "sum": "Paddington and the Browns travel to Peru to find his Aunt Lucy, who has gone missing from her retirement home. The safest pick for kids this weekend.",
+   "f": "library"
   },
   {
    "t": "The Baltimorons",
@@ -405,7 +439,8 @@
    "r": "Not rated",
    "y": 2025,
    "date": "2026-11-13",
-   "sum": "A recovering comedian and the dentist fixing his broken tooth spend a strange Christmas Eve together in Baltimore."
+   "sum": "A recovering comedian and the dentist fixing his broken tooth spend a strange Christmas Eve together in Baltimore.",
+   "f": "library"
   },
   {
    "t": "Madame Web",
@@ -419,7 +454,8 @@
    "r": "PG-13",
    "y": 2024,
    "date": "2026-11-14",
-   "sum": "Dakota Johnson plays a New York paramedic who starts seeing the future, from Sony's Spider-Man side universe."
+   "sum": "Dakota Johnson plays a New York paramedic who starts seeing the future, from Sony's Spider-Man side universe.",
+   "f": "library"
   },
   {
    "t": "Crown of Deceit: Inside the Miss Universe Scandal",
@@ -431,7 +467,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-13",
-   "sum": "A docuseries on the controversy behind the Miss Universe pageant."
+   "sum": "A docuseries on the controversy behind the Miss Universe pageant.",
+   "f": "new"
   },
   {
    "t": "The Chosen, Season 6",
@@ -444,7 +481,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-15",
-   "sum": "The crowd-funded life-of-Jesus drama returns with its sixth season."
+   "sum": "The crowd-funded life-of-Jesus drama returns with its sixth season.",
+   "f": "season"
   },
   {
    "t": "Frasier (2023), Seasons 1–2",
@@ -456,7 +494,9 @@
    ],
    "r": "Not rated",
    "date": "2026-11-14",
-   "sum": "Kelsey Grammer's revival, with Frasier back in Boston near his firefighter son."
+   "sum": "Kelsey Grammer's revival, with Frasier back in Boston near his firefighter son.",
+   "f": "library",
+   "y": 2023
   },
   {
    "t": "The Good Daughter",
@@ -469,7 +509,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-12",
-   "sum": "Rose Byrne and Meghann Fahy star in this limited series from Karin Slaughter's bestseller, about two sisters scarred by a violent attack in their childhood. All episodes drop at once."
+   "sum": "Rose Byrne and Meghann Fahy star in this limited series from Karin Slaughter's bestseller, about two sisters scarred by a violent attack in their childhood. All episodes drop at once.",
+   "f": "new"
   },
   {
    "t": "12 12 12",
@@ -483,7 +524,8 @@
    "r": "Not rated",
    "date": "2026-11-13",
    "pick": true,
-   "sum": "Anthony Mackie plays a disgraced FBI agent chasing Jamie Dornan's career criminal across Europe after a raid on a Zurich bank vault. Two episodes Friday, then one a week through Christmas."
+   "sum": "Anthony Mackie plays a disgraced FBI agent chasing Jamie Dornan's career criminal across Europe after a raid on a Zurich bank vault. Two episodes Friday, then one a week through Christmas.",
+   "f": "new"
   },
   {
    "t": "Being Heumann",
@@ -496,7 +538,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-13",
-   "sum": "From CODA director Siân Heder: the true story of the 1977 sit-in that occupied a San Francisco federal building for disability rights. Ruth Madeley stars with Mark Ruffalo."
+   "sum": "From CODA director Siân Heder: the true story of the 1977 sit-in that occupied a San Francisco federal building for disability rights. Ruth Madeley stars with Mark Ruffalo.",
+   "f": "theatrical"
   },
   {
    "t": "S.W.A.T. Exiles, new episode",
@@ -509,7 +552,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-13",
-   "sum": "Shemar Moore's Hondo leads a unit of green recruits. This week the team handles a middle school lockdown."
+   "sum": "Shemar Moore's Hondo leads a unit of green recruits. This week the team handles a middle school lockdown.",
+   "f": "season"
   },
   {
    "t": "Blue Lights, Season 4",
@@ -522,7 +566,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-12",
-   "sum": "The BAFTA-winning police drama about rookie officers in Belfast returns for a fourth season."
+   "sum": "The BAFTA-winning police drama about rookie officers in Belfast returns for a fourth season.",
+   "f": "season"
   },
   {
    "t": "The Hunger Games films",
@@ -535,7 +580,9 @@
    ],
    "r": "PG-13",
    "date": "2026-11-14",
-   "sum": "All five films arrive for Peacock subscribers. They're already free on Tubi with ads, if you'd rather not pay."
+   "sum": "All five films arrive for Peacock subscribers. They're already free on Tubi with ads, if you'd rather not pay.",
+   "f": "library",
+   "y": "2012–23"
   },
   {
    "t": "PAW Patrol: The Dino Movie",
@@ -548,7 +595,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-12",
-   "sum": "The pups go prehistoric in a new feature for the preschool set."
+   "sum": "The pups go prehistoric in a new feature for the preschool set.",
+   "f": "theatrical"
   },
   {
    "t": "Kids' Choice Awards 2026",
@@ -560,7 +608,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-14",
-   "sum": "Nickelodeon's slime-heavy awards show streams on Paramount+."
+   "sum": "Nickelodeon's slime-heavy awards show streams on Paramount+.",
+   "f": "new"
   },
   {
    "t": "A Proud Family Wizmas",
@@ -574,7 +623,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-14",
-   "sum": "Holiday special episode from The Proud Family: Louder and Prouder."
+   "sum": "Holiday special episode from The Proud Family: Louder and Prouder.",
+   "f": "new"
   },
   {
    "t": "I'm Still Here",
@@ -588,7 +638,8 @@
    "r": "PG-13",
    "y": 2024,
    "date": "2026-11-17",
-   "sum": "Walter Salles' Oscar-winning Brazilian drama about a mother holding her family together after her husband disappears under the military dictatorship."
+   "sum": "Walter Salles' Oscar-winning Brazilian drama about a mother holding her family together after her husband disappears under the military dictatorship.",
+   "f": "library"
   },
   {
    "t": "Splash City",
@@ -601,7 +652,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-17",
-   "sum": "A Starz-exclusive crime drama directed by Berner and Alex Ferrufino."
+   "sum": "A Starz-exclusive crime drama directed by Berner and Alex Ferrufino.",
+   "f": "new"
   },
   {
    "t": "Madden",
@@ -615,7 +667,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-18",
-   "sum": "David O. Russell's film about football coach and broadcaster John Madden, with Nicolas Cage in the title role."
+   "sum": "David O. Russell's film about football coach and broadcaster John Madden, with Nicolas Cage in the title role.",
+   "f": "new"
   },
   {
    "t": "Tony",
@@ -628,7 +681,8 @@
    ],
    "r": "R",
    "date": "2026-11-20",
-   "sum": "A biopic of a young Anthony Bourdain, before the fame, filmed in Massachusetts. Arrives on streaming after its summer theatrical run."
+   "sum": "A biopic of a young Anthony Bourdain, before the fame, filmed in Massachusetts. Arrives on streaming after its summer theatrical run.",
+   "f": "theatrical"
   },
   {
    "t": "Percy Jackson and the Olympians, Season 3",
@@ -642,7 +696,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-20",
-   "sum": "The demigod adventure series adapts the third book in Rick Riordan's series."
+   "sum": "The demigod adventure series adapts the third book in Rick Riordan's series.",
+   "f": "season"
   },
   {
    "t": "They Will Kill You",
@@ -655,7 +710,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-20",
-   "sum": "Horror-comedy starring Zazie Beetz as a woman who takes a job in a New York high-rise run by a murderous cult."
+   "sum": "Horror-comedy starring Zazie Beetz as a woman who takes a job in a New York high-rise run by a murderous cult.",
+   "f": "theatrical"
   },
   {
    "t": "Outlander: Blood of My Blood, new episode",
@@ -668,7 +724,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-20",
-   "sum": "The Outlander prequel about Claire's and Jamie's parents returns after a week off, two episodes before its finale."
+   "sum": "The Outlander prequel about Claire's and Jamie's parents returns after a week off, two episodes before its finale.",
+   "f": "season"
   },
   {
    "t": "Yellowjackets, Season 4",
@@ -681,7 +738,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-20",
-   "sum": "The fourth and final season of the survival thriller about a girls' soccer team stranded in the wilderness."
+   "sum": "The fourth and final season of the survival thriller about a girls' soccer team stranded in the wilderness.",
+   "f": "season"
   },
   {
    "t": "Alien: Romulus",
@@ -695,7 +753,8 @@
    "r": "R",
    "y": 2024,
    "date": "2026-11-21",
-   "sum": "Fede Álvarez's back-to-basics Alien film: young colonists scavenging a derelict space station meet the franchise's deadliest life form."
+   "sum": "Fede Álvarez's back-to-basics Alien film: young colonists scavenging a derelict space station meet the franchise's deadliest life form.",
+   "f": "library"
   },
   {
    "t": "Mickey 17",
@@ -709,7 +768,8 @@
    "r": "R",
    "y": 2025,
    "date": "2026-11-23",
-   "sum": "Bong Joon Ho's follow-up to Parasite. Robert Pattinson plays an 'expendable' worker on an ice-planet colony who gets reprinted every time he dies."
+   "sum": "Bong Joon Ho's follow-up to Parasite. Robert Pattinson plays an 'expendable' worker on an ice-planet colony who gets reprinted every time he dies.",
+   "f": "library"
   },
   {
    "t": "Dig",
@@ -722,7 +782,8 @@
    "r": "Not rated",
    "date": "2026-11-23",
    "pick": true,
-   "sum": "Amy Poehler leads a new comedy series set on an archaeological dig, with Jason Mantzoukas. All episodes at once."
+   "sum": "Amy Poehler leads a new comedy series set on an archaeological dig, with Jason Mantzoukas. All episodes at once.",
+   "f": "new"
   },
   {
    "t": "The Trials of Karen Read",
@@ -735,7 +796,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-23",
-   "sum": "A docuseries on the Massachusetts murder trials that became a national obsession."
+   "sum": "A docuseries on the Massachusetts murder trials that became a national obsession.",
+   "f": "new"
   },
   {
    "t": "New Wave",
@@ -748,7 +810,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-23",
-   "sum": "Four-part docuseries on New Wave music from 1977 to 1987 and how it pushed alternative culture into the mainstream."
+   "sum": "Four-part docuseries on New Wave music from 1977 to 1987 and how it pushed alternative culture into the mainstream.",
+   "f": "new"
   },
   {
    "t": "Blade Runner 2099",
@@ -762,7 +825,8 @@
    "r": "Not rated",
    "date": "2026-11-25",
    "pick": true,
-   "sum": "The long-awaited series continuation of the Blade Runner films, starring Michelle Yeoh."
+   "sum": "The long-awaited series continuation of the Blade Runner films, starring Michelle Yeoh.",
+   "f": "new"
   },
   {
    "t": "The Mosquito Bowl",
@@ -776,7 +840,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-25",
-   "sum": "Peter Berg's film about the 1944 football game played by Marines on Guadalcanal before the Battle of Okinawa."
+   "sum": "Peter Berg's film about the 1944 football game played by Marines on Guadalcanal before the Battle of Okinawa.",
+   "f": "new"
   },
   {
    "t": "Way of the Warrior Kid",
@@ -789,7 +854,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-25",
-   "sum": "Family film based on Jocko Willink's book about a bullied kid whose Navy SEAL uncle helps him get tougher over one summer."
+   "sum": "Family film based on Jocko Willink's book about a bullied kid whose Navy SEAL uncle helps him get tougher over one summer.",
+   "f": "new"
   },
   {
    "t": "The Hunting Wives, Season 2",
@@ -802,7 +868,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-26",
-   "sum": "The steamy Texas thriller with Brittany Snow and Malin Akerman returns."
+   "sum": "The steamy Texas thriller with Brittany Snow and Malin Akerman returns.",
+   "f": "season"
   },
   {
    "t": "M3GAN 2.0",
@@ -816,7 +883,8 @@
    "r": "PG-13",
    "y": 2025,
    "date": "2026-11-26",
-   "sum": "The killer doll returns, this time upgraded to fight a new military-grade android."
+   "sum": "The killer doll returns, this time upgraded to fight a new military-grade android.",
+   "f": "library"
   },
   {
    "t": "The Super Mario Galaxy Movie",
@@ -832,7 +900,8 @@
    "y": 2026,
    "date": "2026-11-30",
    "pick": true,
-   "sum": "Mario and friends head to space in the sequel to the 2023 animated hit."
+   "sum": "Mario and friends head to space in the sequel to the 2023 animated hit.",
+   "f": "theatrical"
   },
   {
    "t": "Trinity",
@@ -844,7 +913,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-01",
-   "sum": "Political thriller: a nuclear submarine officer uncovers secrets that may tie a defense secretary to a global threat."
+   "sum": "Political thriller: a nuclear submarine officer uncovers secrets that may tie a defense secretary to a global threat.",
+   "f": "new"
   },
   {
    "t": "In a Holidaze",
@@ -858,7 +928,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-02",
-   "sum": "A woman stuck in a Christmas time loop has to confess her feelings to her lifelong crush to break it."
+   "sum": "A woman stuck in a Christmas time loop has to confess her feelings to her lifelong crush to break it.",
+   "f": "new"
   },
   {
    "t": "The Man With the Bag",
@@ -872,7 +943,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-02",
-   "sum": "Arnold Schwarzenegger plays Santa, who uses the naughty list to track down whoever stole his magic bag."
+   "sum": "Arnold Schwarzenegger plays Santa, who uses the naughty list to track down whoever stole his magic bag.",
+   "f": "new"
   },
   {
    "t": "Pride and Prejudice",
@@ -887,7 +959,8 @@
    "r": "Not rated",
    "date": "2026-12-03",
    "pick": true,
-   "sum": "A six-part adaptation of Jane Austen's novel with Emma Corrin as Elizabeth Bennet and Jack Lowden as Mr. Darcy."
+   "sum": "A six-part adaptation of Jane Austen's novel with Emma Corrin as Elizabeth Bennet and Jack Lowden as Mr. Darcy.",
+   "f": "new"
   },
   {
    "t": "14TH",
@@ -899,7 +972,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-04",
-   "sum": "Ava DuVernay, director of 13TH, examines the 14th Amendment and who gets to belong in America."
+   "sum": "Ava DuVernay, director of 13TH, examines the 14th Amendment and who gets to belong in America.",
+   "f": "new"
   },
   {
    "t": "Ghostsmas",
@@ -912,7 +986,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-10",
-   "sum": "A two-episode holiday special with the cast of CBS's Ghosts."
+   "sum": "A two-episode holiday special with the cast of CBS's Ghosts.",
+   "f": "new"
   },
   {
    "t": "The Murder of JonBenét Ramsey",
@@ -925,7 +1000,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-10",
-   "sum": "Limited drama series with Melissa McCarthy and Clive Owen as the Ramseys, amid a flawed investigation and a media frenzy."
+   "sum": "Limited drama series with Melissa McCarthy and Clive Owen as the Ramseys, amid a flawed investigation and a media frenzy.",
+   "f": "new"
   },
   {
    "t": "Bad Day",
@@ -937,7 +1013,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-11",
-   "sum": "Cameron Diaz plays a single mom trying to keep one promise to her daughter during a day that keeps going wrong."
+   "sum": "Cameron Diaz plays a single mom trying to keep one promise to her daughter during a day that keeps going wrong.",
+   "f": "new"
   },
   {
    "t": "In Waves",
@@ -951,7 +1028,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-11",
-   "sum": "Animated drama about two teens in Southern California surf culture whose romance is upended by a sudden illness."
+   "sum": "Animated drama about two teens in Southern California surf culture whose romance is upended by a sudden illness.",
+   "f": "new"
   },
   {
    "t": "Tantara",
@@ -963,7 +1041,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-11",
-   "sum": "Korean drama with Song Hye-kyo and Gong Yoo about friends from humble beginnings chasing success in 1970s showbiz."
+   "sum": "Korean drama with Song Hye-kyo and Gong Yoo about friends from humble beginnings chasing success in 1970s showbiz.",
+   "f": "new"
   },
   {
    "t": "Heart of the Beast",
@@ -978,7 +1057,8 @@
    "len": "1h 41m",
    "date": "2026-11-10",
    "pick": true,
-   "sum": "Brad Pitt plays a former special forces soldier stranded in the Alaskan wilderness with his dog after a plane crash. David Ayer directs; J.K. Simmons co-stars."
+   "sum": "Brad Pitt plays a former special forces soldier stranded in the Alaskan wilderness with his dog after a plane crash. David Ayer directs; J.K. Simmons co-stars.",
+   "f": "theatrical"
   },
   {
    "t": "Other Mommy",
@@ -991,7 +1071,8 @@
    "r": "R",
    "len": "1h 33m",
    "date": "2026-11-10",
-   "sum": "Jessica Chastain stars in Rob Savage's horror film about a young girl, Bela, and the sinister 'Other Mommy' who appears to her. Based on Josh Malerman's novel."
+   "sum": "Jessica Chastain stars in Rob Savage's horror film about a young girl, Bela, and the sinister 'Other Mommy' who appears to her. Based on Josh Malerman's novel.",
+   "f": "theatrical"
   },
   {
    "t": "Crawlers",
@@ -1004,7 +1085,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-10",
-   "sum": "An apartment manager (Matilda Lutz) with a fear of spiders is stuck in a quarantined building that turns out to be overrun by venomous ones."
+   "sum": "An apartment manager (Matilda Lutz) with a fear of spiders is stuck in a quarantined building that turns out to be overrun by venomous ones.",
+   "f": "theatrical"
   },
   {
    "t": "Pan's Labyrinth (4K restoration)",
@@ -1018,7 +1100,8 @@
    "r": "R",
    "y": 2006,
    "date": "2026-11-10",
-   "sum": "Guillermo del Toro's dark fairy tale set in 1944 Spain arrives on digital in a new 4K restoration."
+   "sum": "Guillermo del Toro's dark fairy tale set in 1944 Spain arrives on digital in a new 4K restoration.",
+   "f": "library"
   },
   {
    "t": "Resident Evil",
@@ -1032,7 +1115,8 @@
    "r": "R",
    "len": "1h 34m",
    "date": "2026-11-03",
-   "sum": "Zach Cregger's (Weapons) reboot follows a medical courier caught in one terrifying night of chaos. The best-reviewed video game movie ever on Rotten Tomatoes."
+   "sum": "Zach Cregger's (Weapons) reboot follows a medical courier caught in one terrifying night of chaos. The best-reviewed video game movie ever on Rotten Tomatoes.",
+   "f": "theatrical"
   },
   {
    "t": "The Odyssey",
@@ -1048,7 +1132,8 @@
    "len": "2h 52m",
    "date": "2026-11-17",
    "pick": true,
-   "sum": "Christopher Nolan's epic, with Matt Damon as Odysseus trying to get home after the Trojan War, plus Tom Holland, Anne Hathaway and Lupita Nyong'o. Some stores may sell it before offering rentals."
+   "sum": "Christopher Nolan's epic, with Matt Damon as Odysseus trying to get home after the Trojan War, plus Tom Holland, Anne Hathaway and Lupita Nyong'o. Some stores may sell it before offering rentals.",
+   "f": "theatrical"
   },
   {
    "t": "Ebenezer: A Christmas Carol",
@@ -1064,7 +1149,8 @@
    "date": "2026-11-13",
    "pick": true,
    "len": "2h 0m",
-   "sum": "Ti West (X, Pearl) turns Dickens into a ghost story, with Johnny Depp as Scrooge and Ian McKellen, Daisy Ridley and Sam Claflin. Rated PG-13 for frightening material, so it's spookier than most versions."
+   "sum": "Ti West (X, Pearl) turns Dickens into a ghost story, with Johnny Depp as Scrooge and Ian McKellen, Daisy Ridley and Sam Claflin. Rated PG-13 for frightening material, so it's spookier than most versions.",
+   "f": "new"
   },
   {
    "t": "I Play Rocky",
@@ -1077,7 +1163,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-13",
-   "sum": "The story behind Sylvester Stallone's fight to make Rocky, with Matt Dillon and AnnaSophia Robb. Opens in select cities Nov 13 and nationwide Nov 20."
+   "sum": "The story behind Sylvester Stallone's fight to make Rocky, with Matt Dillon and AnnaSophia Robb. Opens in select cities Nov 13 and nationwide Nov 20.",
+   "f": "new"
   },
   {
    "t": "The Angry Birds Movie (10th anniversary)",
@@ -1093,7 +1180,8 @@
    "y": 2016,
    "date": "2026-11-13",
    "len": "1h 37m",
-   "sum": "A limited anniversary re-release, in 3D at some locations. An easy outing for younger kids."
+   "sum": "A limited anniversary re-release, in 3D at some locations. An easy outing for younger kids.",
+   "f": "library"
   },
   {
    "t": "Godzilla Minus Zero",
@@ -1108,7 +1196,8 @@
    "r": "R",
    "date": "2026-11-06",
    "len": "2h 15m",
-   "sum": "Takashi Yamazaki's follow-up to Godzilla Minus One. The first R-rated Godzilla film, for bloody violence. Shot for IMAX."
+   "sum": "Takashi Yamazaki's follow-up to Godzilla Minus One. The first R-rated Godzilla film, for bloody violence. Shot for IMAX.",
+   "f": "new"
   },
   {
    "t": "The Hunger Games: Sunrise on the Reaping",
@@ -1123,7 +1212,8 @@
    "date": "2026-11-20",
    "len": "2h 30m",
    "pick": true,
-   "sum": "The prequel about a young Haymitch Abernathy's Hunger Games, with Elle Fanning, Ralph Fiennes and Jesse Plemons."
+   "sum": "The prequel about a young Haymitch Abernathy's Hunger Games, with Elle Fanning, Ralph Fiennes and Jesse Plemons.",
+   "f": "new"
   },
   {
    "t": "A Beautiful Mind (25th anniversary)",
@@ -1138,7 +1228,8 @@
    "y": 2001,
    "date": "2026-11-22",
    "len": "2h 15m",
-   "sum": "Limited anniversary screenings of the Best Picture winner with Russell Crowe as mathematician John Nash."
+   "sum": "Limited anniversary screenings of the Best Picture winner with Russell Crowe as mathematician John Nash.",
+   "f": "library"
   },
   {
    "t": "Hexed",
@@ -1152,7 +1243,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-25",
-   "sum": "Disney's new animated feature about a girl who discovers her family's magical past, with Hailee Steinfeld, Rashida Jones and Stephen Fry."
+   "sum": "Disney's new animated feature about a girl who discovers her family's magical past, with Hailee Steinfeld, Rashida Jones and Stephen Fry.",
+   "f": "new"
   },
   {
    "t": "Focker-in-Law",
@@ -1164,7 +1256,8 @@
    ],
    "r": "Not rated",
    "date": "2026-11-25",
-   "sum": "Robert De Niro and Ben Stiller return for a fourth Meet the Parents film, joined by Skyler Gisondo and Owen Wilson. Opens Thanksgiving Eve."
+   "sum": "Robert De Niro and Ben Stiller return for a fourth Meet the Parents film, joined by Skyler Gisondo and Owen Wilson. Opens Thanksgiving Eve.",
+   "f": "new"
   },
   {
    "t": "Violent Night 2",
@@ -1178,7 +1271,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-04",
-   "sum": "David Harbour's brawling Santa is back, now joined by Kristen Bell."
+   "sum": "David Harbour's brawling Santa is back, now joined by Kristen Bell.",
+   "f": "new"
   },
   {
    "t": "How to Rob a Bank",
@@ -1192,7 +1286,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-04",
-   "sum": "David Leitch's satirical heist movie about bank robbers who livestream their crimes, with Nicholas Hoult and Zoë Kravitz."
+   "sum": "David Leitch's satirical heist movie about bank robbers who livestream their crimes, with Nicholas Hoult and Zoë Kravitz.",
+   "f": "new"
   },
   {
    "t": "Above the Below",
@@ -1206,7 +1301,8 @@
    ],
    "r": "Not rated",
    "date": "2026-12-04",
-   "sum": "Idris Elba leads a sci-fi thriller from Lionsgate."
+   "sum": "Idris Elba leads a sci-fi thriller from Lionsgate.",
+   "f": "new"
   },
   {
    "t": "The Maltese Falcon (85th anniversary)",
@@ -1221,7 +1317,8 @@
    "y": 1941,
    "date": "2026-12-06",
    "len": "1h 40m",
-   "sum": "Humphrey Bogart's Sam Spade returns to the big screen for limited anniversary showings."
+   "sum": "Humphrey Bogart's Sam Spade returns to the big screen for limited anniversary showings.",
+   "f": "library"
   }
  ],
  "reviews": {
