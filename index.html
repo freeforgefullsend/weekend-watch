@@ -7,6 +7,8 @@
 <meta name="theme-color" content="#eef1f6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e1220" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.webmanifest">
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -137,6 +139,15 @@ section .sub{color:var(--muted);margin:0 0 12px;font-size:14px;max-width:70ch}
 .day.is-today{border-color:var(--ink)}
 .day.ahead-chip{color:var(--muted);border-style:dashed}
 .fb.bell[aria-pressed="true"]{background:var(--paid-soft);color:var(--paid);border-color:var(--paid)}
+.poster.has-img{padding:0;background:var(--line)}
+.poster.has-img::before,.poster.has-img::after{display:none}
+.poster.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sc.imdb{background:var(--paid-soft);color:var(--paid)}
+.wtw{font-size:12px;color:var(--muted)}
+.wtw b{color:var(--ink);font-weight:600}
+.acct{display:flex;flex-direction:column;gap:6px}
+.acct-row{display:flex;gap:6px;flex-wrap:wrap}
+.acct-row input{flex:1 1 200px;min-width:0;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:7px 10px}
 .links{margin-top:auto;display:flex;flex-wrap:wrap;gap:4px 14px}
 .card.free{border-top:4px solid var(--free)} .card.sub{border-top:4px solid var(--accent)} .card.rent{border-top:4px solid var(--paid)} .card.theater{border-top:4px solid var(--theater)}
 .sub .tag.where{background:var(--accent-soft);color:var(--accent)} .rent .tag.where{background:var(--paid-soft);color:var(--paid)}
@@ -202,7 +213,7 @@ footer ul{margin:6px 0 0;padding-left:18px}
 <main class="wrap" id="main"></main>
 
 <footer class="wrap">
-  <div>Listings refresh every morning from studio and streamer announcements. Dates can shift, and free catalogs vary by region. Ratings shown are MPA ratings where one has been published; "Not rated" means none was listed. Poster cards are designed stand-ins, not official artwork; the "Poster &amp; trailer" link opens the official art on JustWatch.</div>
+  <div>Listings refresh every morning from studio and streamer announcements. Dates can shift, and free catalogs vary by region. Ratings shown are MPA ratings where one has been published; "Not rated" means none was listed. Posters, IMDb and Metacritic ratings, and where-to-watch details come from TMDB, OMDb and JustWatch when available; designed title cards fill in otherwise. This product uses the TMDB API but is not endorsed or certified by TMDB. Where-to-watch data provided by JustWatch.</div>
   <div style="margin-top:8px">Sources:</div>
   <ul>
     <li><a href="https://www.boxofficemojo.com/calendar/2026-11-09/" target="_blank" rel="noopener">Box Office Mojo release calendar</a></li>
@@ -247,50 +258,90 @@ let saved = new Set(store.get("ww-saved",[]));
 let taste = {fb:{},moods:[]};
 {const t=store.get("ww-taste",null); if(t&&t.fb&&Array.isArray(t.moods)) taste=t;}
 let reminders = store.get("ww-reminders",{}); // slug -> {t,date,s,a}
-let cloud = {db:null, ref:null, status:"local"}; // local | syncing | synced | unavailable
+let cloud = {sb:null, user:null, status:"off"}; // off | signedout | sending | sent | error | syncing | synced
 const slug = t => t.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,80);
 let pushTimer=null, writing=false, pendingPush=false;
 function persist(){
   store.set("ww-saved",[...saved]); store.set("ww-taste",taste); store.set("ww-reminders",reminders);
-  if(!cloud.ref) return;
+  if(!cloud.user) return;
   clearTimeout(pushTimer); pushTimer=setTimeout(pushCloud,600);
 }
 async function pushCloud(){
   if(writing){pendingPush=true;return;}
   writing=true;
-  try{ await cloud.ref.set({reminders, taste, saved:[...saved], updatedAt:new Date().toISOString()}); cloud.status="synced"; }
-  catch(e){ cloud.status="unavailable"; }
+  const {error} = await cloud.sb.from("user_state").upsert({user_id:cloud.user.id, reminders, taste, saved:[...saved], updated_at:new Date().toISOString()});
+  cloud.status = error ? "error" : "synced";
   writing=false; renderSync();
   if(pendingPush){pendingPush=false; pushCloud();}
 }
-async function connectCloud(){
-  try{
-    if(!window.claude||!window.claude.use) { cloud.status="unavailable"; renderSync(); return; }
-    const [db,user] = await Promise.all([claude.use("db"), claude.use("user")]);
-    const uid = user ? await user.id() : null;
-    if(!db||!uid){ cloud.status="unavailable"; renderSync(); return; }
-    cloud.db=db; cloud.ref=db.doc("people/"+uid); cloud.status="syncing"; renderSync();
-    let first=true;
-    const timer=setTimeout(()=>{ if(first){cloud.status="unavailable"; renderSync();} },10000);
-    cloud.ref.onSnapshot(snap=>{
-      if(!snap.metadata.fromCache){clearTimeout(timer);}
-      if(snap.metadata.hasPendingWrites) return;
-      const d=snap.exists?snap.data():null;
-      if(first){
-        first=false;
-        if(d){ // merge: account wins, but keep anything only this browser had
-          reminders={...reminders,...(d.reminders||{})};
-          const ft=d.taste||{fb:{},moods:[]}; taste={fb:{...taste.fb,...(ft.fb||{})},moods:[...new Set([...(taste.moods||[]),...(ft.moods||[])])]};
-          saved=new Set([...saved,...(d.saved||[])]);
-          if(JSON.stringify(d.reminders||{})!==JSON.stringify(reminders)||JSON.stringify(d.taste||{})!==JSON.stringify(taste)) persist();
-        } else if(Object.keys(reminders).length||Object.keys(taste.fb).length||taste.moods.length||saved.size){ persist(); }
-      } else if(d){
-        reminders=d.reminders||{}; taste=d.taste||{fb:{},moods:[]}; saved=new Set(d.saved||[]);
-        store.set("ww-saved",[...saved]); store.set("ww-taste",taste); store.set("ww-reminders",reminders);
-      }
-      cloud.status="synced"; render();
-    }, ()=>{ clearTimeout(timer); cloud.status="unavailable"; renderSync(); });
-  }catch(e){ cloud.status="unavailable"; renderSync(); }
+async function loadCloud(){
+  cloud.status="syncing"; renderSync();
+  const {data,error} = await cloud.sb.from("user_state").select("reminders,taste,saved").eq("user_id",cloud.user.id).maybeSingle();
+  if(error){ cloud.status="error"; render(); return; }
+  if(data){ // merge: keep everything from the account plus anything only this browser had
+    reminders={...reminders,...(data.reminders||{})};
+    const ft=data.taste||{fb:{},moods:[]}; taste={fb:{...taste.fb,...(ft.fb||{})},moods:[...new Set([...(taste.moods||[]),...(ft.moods||[])])]};
+    saved=new Set([...saved,...(data.saved||[])]);
+  }
+  persist(); cloud.status="synced"; render();
+}
+function connectCloud(){
+  const c=window.WW_CONFIG||{};
+  if(!c.supabaseUrl||!c.supabaseKey||!window.supabase){ cloud.status="off"; return; }
+  cloud.sb=window.supabase.createClient(c.supabaseUrl,c.supabaseKey,{auth:{persistSession:true,detectSessionInUrl:true,flowType:"pkce"}});
+  cloud.status="signedout"; render();
+  cloud.sb.auth.onAuthStateChange((ev,session)=>{
+    const u=session?session.user:null;
+    if(u && (!cloud.user||cloud.user.id!==u.id)){ cloud.user=u; setTimeout(loadCloud,0); }
+    else if(!u && cloud.user){ cloud.user=null; cloud.status="signedout"; render(); }
+  });
+}
+async function signIn(email){
+  cloud.status="sending"; render();
+  const {error}=await cloud.sb.auth.signInWithOtp({email, options:{emailRedirectTo: location.origin+location.pathname}});
+  cloud.status=error?"error":"sent"; render();
+}
+
+// ===== Posters, ratings and where to watch (TMDB + OMDb via /api/title) =====
+let ENRICH = store.get("ww-enrich",{}); // cleaned title -> {at, data}
+let apiOff = false; const inflight = new Set(); let enrichTimer=null;
+function cleanTitle(d){
+  const t=d.t.replace(/\s*\(.*?\)/g,"").replace(/,\s*Seasons?\b.*$/,"").replace(/,\s*new episode$/,"").trim();
+  return / \+ | & |collection$|films$/i.test(t) ? null : t;
+}
+function lookupYear(d){ if(d.y) return String(d.y); if(d.k==="Series" && /Season|new episode/i.test(d.t)) return ""; return String(pd(d.date).getFullYear()); } // a year narrows the match; the lookup retries without it
+function enr(d){ const k=cleanTitle(d); return k&&ENRICH[k] ? ENRICH[k].data : null; }
+function want(d){
+  const k=cleanTitle(d); if(!k||apiOff||inflight.has(k)) return;
+  const e=ENRICH[k]; if(e && Date.now()-e.at < 864e5) return;
+  inflight.add(k);
+  fetch(`/api/title?t=${encodeURIComponent(k)}&y=${lookupYear(d)}&k=${d.k}`).then(r=>{
+    if(r.status===503||r.status===404){ apiOff=true; return null; } return r.ok ? r.json() : null;
+  }).then(j=>{
+    if(apiOff) return;
+    ENRICH[k]={at:Date.now(), data:(j&&!j.error)?j:null};
+    store.set("ww-enrich",ENRICH);
+    clearTimeout(enrichTimer); enrichTimer=setTimeout(render,350);
+  }).catch(()=>{}).finally(()=>inflight.delete(k));
+}
+const BYKEY = new Map();
+const io = ("IntersectionObserver" in window) ? new IntersectionObserver(es=>{
+  for(const e of es){ if(e.isIntersecting){ const d=BYKEY.get(e.target.dataset.k); if(d) want(d); io.unobserve(e.target); } }
+},{rootMargin:"600px 0px"}) : null;
+function observeCards(){
+  if(apiOff) return;
+  document.querySelectorAll("article.card[data-k]").forEach(el=>{ if(io) io.observe(el); else { const d=BYKEY.get(el.dataset.k); if(d) want(d); } });
+}
+function whereToWatch(d){
+  const e=enr(d); const p=e&&e.providers; if(!p) return "";
+  const parts=[];
+  const free=[...new Set([...(p.free||[]),...(p.ads||[])])];
+  if(free.length) parts.push(`<b>Free:</b> ${esc(free.slice(0,3).join(", "))}`);
+  if(p.subscription&&p.subscription.length) parts.push(`<b>Included:</b> ${esc(p.subscription.slice(0,3).join(", "))}`);
+  const rb=[...new Set([...(p.rent||[]),...(p.buy||[])])];
+  if(rb.length) parts.push(`<b>Rent/buy:</b> ${esc(rb.slice(0,3).join(", "))}`);
+  if(!parts.length) return "";
+  return `<div class="wtw">${parts.join(" · ")}${p.link?` <a href="${esc(p.link)}" target="_blank" rel="noopener">All options</a>`:""}</div>`;
 }
 
 // ===== Match score =====
@@ -308,6 +359,8 @@ function priorOf(d){
   const r=REVIEWS[d.t], i=INFO[d.t]||{};
   if(r&&r.rt){const rt=parseInt(r.rt), au=r.aud?parseInt(r.aud):null; return {v:au!=null?Math.round(rt*0.6+au*0.4):rt, basis:"Starts from its review scores"}}
   if(r&&r.other){return {v:parseInt(r.other)*10, basis:"Starts from an early critic review"}}
+  const e=enr(d); const er=e&&e.ratings;
+  if(er&&(er.rt||er.imdb)){const v=er.rt&&er.imdb?Math.round(parseInt(er.rt)*0.5+parseFloat(er.imdb)*5):er.rt?parseInt(er.rt):Math.round(parseFloat(er.imdb)*10); return {v, basis:"Starts from its review scores"}}
   return {v:i.prior??55, basis:i.basis||"No reviews yet"};
 }
 function nice(f){const t=f[0],v=f.slice(2);
@@ -362,6 +415,7 @@ const GENRE_HUE = {Action:[8,78],Thriller:[222,40],Mystery:[255,38],Horror:[350,
   Music:[300,48],Romance:[340,58],Historical:[35,40],Faith:[45,45],Superhero:[230,62],Crime:[210,30],Adventure:[100,48],Fantasy:[265,50]};
 function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
 function poster(d){
+  const e=enr(d); if(e&&e.poster) return `<div class="poster has-img"><img src="${esc(e.poster)}" alt="" loading="lazy" decoding="async"></div>`;
   const h=hash(d.t); const [hue,sat]=GENRE_HUE[d.g[0]]||[230,40];
   const hue2=(hue+20+(h%50))%360, ang=(h>>4)%360, kind=(h>>9)%4, gap=10+((h>>12)%14);
   const bg=`linear-gradient(${ang}deg,hsl(${hue} ${sat}% 30%),hsl(${hue2} ${Math.min(sat+10,90)}% 46%))`;
@@ -377,23 +431,28 @@ function poster(d){
 }
 function review(d){
   const r=REVIEWS[d.t], q=encodeURIComponent(d.t.replace(/\s*\(.*?\)/g,"").replace(/,.*$/,""));
-  const ext=`<span class="rvl"><a href="https://www.rottentomatoes.com/search?search=${q}" target="_blank" rel="noopener">Rotten Tomatoes</a> · <a href="https://www.imdb.com/find/?q=${q}" target="_blank" rel="noopener">IMDb</a></span>`;
-  if(!r) return `<div class="rv quiet">${ext}</div>`;
+  const e=enr(d), er=(e&&e.ratings)||{};
+  const ext=`<span class="rvl"><a href="https://www.rottentomatoes.com/search?search=${q}" target="_blank" rel="noopener">Rotten Tomatoes</a> · <a href="${e&&e.imdb?"https://www.imdb.com/title/"+esc(e.imdb)+"/":"https://www.imdb.com/find/?q="+q}" target="_blank" rel="noopener">IMDb</a></span>`;
   const pills=[];
-  if(r.rt){const fresh=parseInt(r.rt)>=60;pills.push(`<span class="sc ${fresh?"fresh":"rotten"}" title="Rotten Tomatoes critics">${fresh?"●":"○"} ${r.rt}<small> critics</small></span>`)}
-  if(r.aud) pills.push(`<span class="sc aud" title="Rotten Tomatoes audience">${r.aud}<small> audience</small></span>`);
-  if(r.other) pills.push(`<span class="sc aud">${r.other}</span>`);
-  if(r.pending) pills.push(`<span class="sc pend">Reviews pending</span>`);
-  return `<div class="rv">${pills.length?`<div class="scs">${pills.join("")}${r.n?`<span class="n">${r.n}</span>`:""}</div>`:""}
-    <div class="tk">${esc(r.take)}${r.src?` <span class="src">${esc(r.src)}</span>`:""}</div>${ext}</div>`;
+  const rt=(r&&r.rt)||er.rt;
+  if(rt){const fresh=parseInt(rt)>=60;pills.push(`<span class="sc ${fresh?"fresh":"rotten"}" title="Rotten Tomatoes critics">${fresh?"●":"○"} ${esc(rt)}<small> critics</small></span>`)}
+  if(r&&r.aud) pills.push(`<span class="sc aud" title="Rotten Tomatoes audience">${esc(r.aud)}<small> audience</small></span>`);
+  if(er.imdb) pills.push(`<span class="sc imdb" title="IMDb user rating">★ ${esc(er.imdb)}<small> IMDb</small></span>`);
+  if(er.metacritic) pills.push(`<span class="sc aud" title="Metacritic">${esc(er.metacritic)}<small> Metacritic</small></span>`);
+  if(r&&r.other) pills.push(`<span class="sc aud">${esc(r.other)}</span>`);
+  if(r&&r.pending&&!rt&&!er.imdb) pills.push(`<span class="sc pend">Reviews pending</span>`);
+  if(!pills.length&&!r) return `<div class="rv quiet">${ext}</div>`;
+  return `<div class="rv">${pills.length?`<div class="scs">${pills.join("")}${r&&r.n?`<span class="n">${esc(r.n)}</span>`:""}</div>`:""}
+    ${r&&r.take?`<div class="tk">${esc(r.take)}${r.src?` <span class="src">${esc(r.src)}</span>`:""}</div>`:""}${ext}</div>`;
 }
-function rtNum(d){const r=REVIEWS[d.t];return r&&r.rt?parseInt(r.rt):(r&&r.other?80:-1)}
+function rtNum(d){const r=REVIEWS[d.t];if(r&&r.rt) return parseInt(r.rt); if(r&&r.other) return 80; const e=enr(d),er=e&&e.ratings; if(er&&er.rt) return parseInt(er.rt); if(er&&er.imdb) return Math.round(parseFloat(er.imdb)*10); return -1;}
 function card(d){
   const look = `https://www.justwatch.com/us/search?q=${encodeURIComponent(d.t.replace(/\s*\(.*?\)/g,"").replace(/, new episode$/,""))}`;
   const href = d.a==="theater" ? `https://www.google.com/search?q=${encodeURIComponent(d.t+" showtimes near me")}` : d.a==="rent" ? look : LINK[d.s];
   const go = d.a==="theater" ? "Find showtimes" : d.a==="rent" ? "Compare rental prices" : `Open ${d.s}`;
   const isS = saved.has(d.t), future = pd(d.date) > TODAY, rem = !!reminders[slug(d.t)];
-  return `<article class="card ${cls(d)}">
+  const ck=cleanTitle(d); if(ck) BYKEY.set(ck,d);
+  return `<article class="card ${cls(d)}"${ck?` data-k="${esc(ck)}"`:""}>
     <button class="save" data-save="${esc(d.t)}" aria-pressed="${isS}" aria-label="${isS?"Remove from":"Add to"} my list">${isS?"♥":"♡"}</button>
     ${poster(d)}
     <div class="body">
@@ -403,6 +462,7 @@ function card(d){
     <div class="meta"><span class="tag where">${esc(d.s)}</span>${d.a==="free"?'<span class="tag nosub">No subscription</span>':""}<span class="tag">${d.k}</span><span class="tag rate">${esc(d.r)}</span>${d.y?`<span class="tag">${d.y}</span>`:""}${d.len?`<span class="tag">${d.len}</span>`:""}${d.g.map(g=>`<span class="tag">${g}</span>`).join("")}</div>
     <p>${esc(d.sum)}</p>
     ${review(d)}
+    ${whereToWatch(d)}
     <div class="fbs" role="group" aria-label="Teach your match score">
       ${future?`<button class="fb bell" data-rem="${esc(d.t)}" aria-pressed="${rem}">${rem?"🔔 Reminder set":"🔔 Remind me"}</button>`:""}
       <button class="fb up" data-fb="1" data-t="${esc(d.t)}" aria-pressed="${taste.fb[d.t]===1}">▲ More like this</button>
@@ -425,9 +485,16 @@ function block(title,sub,color,items,emptyMsg){
 }
 const MOODS = ["Comedy","Drama","Thriller","Horror","Action","Sci-Fi","Family","Holiday","Romance","Documentary","Reality","Animation"];
 function syncNote(){
-  return {local:"Saved in this browser.",syncing:"Connecting to your account…",synced:"Synced to your account, so reminders can reach your phone.",unavailable:"Saved in this browser. Accounts, cross-device sync and push reminders are coming soon."}[cloud.status];
+  return {off:"Saved in this browser.",signedout:"",sending:"Sending your sign-in link…",sent:"Check your email for a sign-in link. Open it on this device.",error:"That didn't work. Check the email address and try again.",syncing:"Syncing…",synced:"Synced to your account."}[cloud.status]||"";
 }
 function renderSync(){const el=document.getElementById("sync"); if(el) el.textContent=syncNote();}
+function accountHtml(){
+  if(cloud.status==="off") return `<p class="muted small" id="sync">${syncNote()}</p>`;
+  if(cloud.user) return `<div class="acct"><span class="muted small">Signed in as ${esc(cloud.user.email||"you")} · <span id="sync">${syncNote()}</span></span> <button class="linkbtn" id="signout">Sign out</button></div>`;
+  return `<form class="acct" id="signin" autocomplete="on"><label for="email" class="small">Sign in to keep your reminders, ratings and list on every device.</label>
+    <div class="acct-row"><input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email"><button type="submit" class="fb up">Email me a sign-in link</button></div>
+    <p class="muted small" id="sync" role="status">${syncNote()}</p></form>`;
+}
 function topPanel(){
   const pos=[], neg=[];
   Object.entries(SIG).filter(([f])=>f[0]==="g"||f[0]==="p").sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).forEach(([f,v])=>{ if(v>=0.9) pos.push(nice(f)); else if(v<=-0.9) neg.push(nice(f)); });
@@ -441,7 +508,7 @@ function topPanel(){
   return `<div class="panels">
     <section class="taste"><div class="th"><h2 class="tt">Your match</h2><p class="sub">A predicted fit, not a review. It starts from critic scores (or the cast and director's track record when there are none) and shifts toward your taste as you rate titles.</p></div>
       <div class="moods" role="group" aria-label="What are you in the mood for?"><span class="ml">In the mood for:</span>${MOODS.map(g=>`<button class="chip mood" data-mood="${g}" aria-pressed="${taste.moods.includes(g)}">${g}</button>`).join("")}</div>${learned}</section>
-    <section class="taste"><div class="th"><h2 class="tt">🔔 Your reminders</h2><p class="sub">Your list of upcoming titles. Phone notifications arrive with accounts, coming soon.</p></div>${remHtml}<p class="muted small" id="sync">${syncNote()}</p></section>
+    <section class="taste"><div class="th"><h2 class="tt">🔔 Your reminders</h2><p class="sub">Titles you want to catch the day they arrive.</p></div>${remHtml}${accountHtml()}</section>
   </div>`;
 }
 function render(){
@@ -485,6 +552,7 @@ function render(){
   </div></section>`;
   }
   document.getElementById("main").innerHTML = html;
+  observeCards();
 }
 function renderHeader(){
   document.getElementById("eyebrow").textContent = `Updated ${fmt(pd(UPDATED))} · United States`;
@@ -500,7 +568,12 @@ gEl.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;
 document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();render();});
 for(const id of ["kind","rating","svc","sort"]) document.getElementById(id).addEventListener("change",e=>{state[id]=e.target.value;render();});
 document.getElementById("nosub").addEventListener("change",e=>{state.nosub=e.target.checked;render();});
+document.getElementById("main").addEventListener("submit",e=>{
+  if(e.target.id!=="signin") return; e.preventDefault();
+  const v=(document.getElementById("email").value||"").trim(); if(v) signIn(v);
+});
 document.getElementById("main").addEventListener("click",e=>{
+  if(e.target.id==="signout"){ cloud.sb.auth.signOut(); return; }
   const r=e.target.closest("[data-rem]"); if(r){const d=DATA.find(x=>x.t===r.dataset.rem), k=slug(d.t);
     if(reminders[k]) delete reminders[k]; else reminders[k]={t:d.t,date:d.date,s:d.s,a:d.a};
     persist(); render(); return;}
@@ -511,7 +584,8 @@ document.getElementById("main").addEventListener("click",e=>{
   const b=e.target.closest(".save");if(!b)return;const t=b.dataset.save;saved.has(t)?saved.delete(t):saved.add(t);persist();render();});
 const lastA = store.get("ww-access",null);
 if(lastA && ["inc","rent","theater","all"].includes(lastA)){state.access=lastA;document.querySelectorAll(".access button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.a===lastA));}
-renderHeader(); render(); connectCloud();
+renderHeader(); render();
+if(window.supabase) connectCloud(); else window.addEventListener("load",connectCloud);
 
 }
 fetch("data/titles.json",{cache:"no-cache"}).then(r=>{if(!r.ok) throw new Error(r.status); return r.json();}).then(boot).catch(()=>{
